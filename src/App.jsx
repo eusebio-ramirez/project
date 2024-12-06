@@ -1,5 +1,5 @@
 function App() {
-  return <></>;
+  return <>Team 1</>;
 }
 
 export default App;
