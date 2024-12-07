@@ -1,0 +1,15 @@
+.navBar{
+    background-color: brown;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.navBar a{
+    color: white;
+}
+
+.dropdown-menu a{
+    color: gray;
+}

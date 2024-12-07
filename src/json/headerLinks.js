@@ -1,12 +1,12 @@
 export const links = [
-    {
+    { // 0
         "nombre" : "Agenda del Titular",
         "link" : "/Agenda",
-    },
+    }, // 1
     {
         "nombre" : "Informe de Actividades",
         "link" : "/InformeActividades",
-    },
+    }, // 2
     {
         "nombre" : "Transparencia",
          "link" : "/Transparencia",
@@ -37,15 +37,15 @@ export const links = [
             }
         ]
     },
-    {
+    { // 3
         "nombre" : "Servicios",
         "link" : "/Servicios",
     },
-    {
+    { // 4
         "nombre" : "Evaluación y Monitoreo",
         "link" : "/EvaluacionMonitoreo",
     },
-    {
+    { // 5
         "nombre" : "Información Institucional",
         "link" : "/InformacionInstitucional",
         "submenu" : [
