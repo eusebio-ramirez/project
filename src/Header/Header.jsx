@@ -5,12 +5,13 @@ import { fetchLinks } from "../json/headerLinks";
 import "./header.css";
 
 const Header = () => {
+  const [links, setLinks] = useState([]);
   const [overlay, setOverlay] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
 
   useEffect(() => {
     fetchLinks().then((links) => {
-      console.log(links);
+      setLinks(links);
     });
   }, []);
 
@@ -88,7 +89,7 @@ const Header = () => {
                     Inicio
                   </div>
                 </li>
-                {/* {links.map((item, index) => (
+                {links.map((item, index) => (
                   <li
                     key={index}
                     className="nav-item dropdown"
@@ -133,7 +134,7 @@ const Header = () => {
                       ""
                     )}
                   </li>
-                ))} */}
+                ))}
               </ul>
             </div>
           </div>
