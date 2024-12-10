@@ -2,11 +2,13 @@ import { NavBar } from "./components/NavBar/NavBar";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { links } from './json/headerLinks'
 import { Home } from "./pages/Home/Home";
+import Header from "./components/Header/Header.jsx";
 
 function App() {
   return <>
+    
     <BrowserRouter >
-      <NavBar></NavBar>
+    <Header></Header>
       <Routes>
         {/*Consulte el JSON Para correspondencia de componentes*/}
         <Route path="/" element={<Home/>}></Route>

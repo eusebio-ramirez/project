@@ -96,3 +96,11 @@ export const links = [
         ]
     }
 ] 
+
+export const fetchLinks = ()=>{
+    return new Promise((resolve) =>{
+        setTimeout(() =>{
+            resolve(links)
+        },1000) // retorno despues de un segundo
+    })
+}
