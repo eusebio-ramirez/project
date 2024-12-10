@@ -1,0 +1,21 @@
+.contentAccess {
+    position: fixed;
+    z-index: 1001;
+    bottom: 8vh;
+    right: 5vw;
+}
+.contentAccess .options {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    margin-bottom: .2rem;
+    transition: all 0.3s ease-in-out;
+}
+.contentAccess .accessButton {
+    border-radius: 50%;
+    padding: .2rem;
+}
+.contentAccess .accessButton i {
+    font-size: 2.5rem;
+    line-height: 0;
+}

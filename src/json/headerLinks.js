@@ -1,9 +1,5 @@
 export const links = [
     {
-        "nombre" : "Agenda del Titular",
-        "link" : "/Agenda",
-    },
-    {
         "nombre" : "Informe de Actividades",
         "link" : "/InformeActividades",
     },
@@ -42,24 +38,12 @@ export const links = [
         "link" : "/Servicios",
     },
     {
-        "nombre" : "Evaluación y Monitoreo",
-        "link" : "/EvaluacionMonitoreo",
-    },
-    {
         "nombre" : "Información Institucional",
         "link" : "/InformacionInstitucional",
         "submenu" : [
             {
                 "subMenuNombre" : "DIF Municipales",
                 "subMenuUrl" : "/InformacionInstitucional/DetalleDIFMunicipales"
-            },
-            {
-                "subMenuNombre" : "Donativos Recibidos",
-                "subMenuUrl" : "/InformacionInstitucional"
-            },
-            {
-                "subMenuNombre" : "Documentos de Interés",
-                "subMenuUrl" : "/InformacionInstitucional"
             },
             {
                 "subMenuNombre" : "Identidad Institucional",
@@ -88,11 +72,19 @@ export const links = [
             {
                 "subMenuNombre" : "Protocolo Cero",
                 "subMenuUrl" : "/InformacionInstitucional/ProtocoloCero"
-            },
-            {
-                "subMenuNombre" : "SICS (Contraloria Social)",
-                "subMenuUrl" : "/InformacionInstitucional"
             }
         ]
+    },
+    {
+        "nombre" : "Evaluación y Monitoreo",
+        "link" : "/EvaluacionMonitoreo",
     }
-] 
+]
+
+export const fetchLinks = () => {
+    return new Promise ((resolve) => {
+        setTimeout(() => {
+            resolve(links);
+        }, 1000);
+    })
+}

@@ -1,9 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
+import SnowProvider from './context/SnowProvider.jsx'
+import { Provider } from 'react-redux'
+import { store } from './context/store.js'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <Provider store={store}>
+      <SnowProvider>
+        <App />
+      </SnowProvider>
+    </Provider>
   </StrictMode>,
 )

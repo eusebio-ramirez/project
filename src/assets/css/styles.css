@@ -1,0 +1,25 @@
+.grayscale {
+    filter: grayscale();
+}
+
+.contentApp {
+    position: relative;
+}
+
+.headerPrincipal {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container1 {
+    margin-top: 3rem;
+    min-height: 80vh;
+}
+
+.principalTitle {
+    padding-bottom: .5rem;
+    margin-bottom: 1.5rem;
+    color: var(--bs-blue);
+    border-bottom: solid 2px var(--bs-gray-600);
+}
