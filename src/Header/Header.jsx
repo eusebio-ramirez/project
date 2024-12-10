@@ -87,9 +87,10 @@ const Header = () => {
                 <li className="nav-item">
                   <div to="/" className="nav-link">
                     Inicio
+  
                   </div>
                 </li>
-                {links.map((item, index) => (
+               {links.map((item, index) => (
                   <li
                     key={index}
                     className="nav-item dropdown"
