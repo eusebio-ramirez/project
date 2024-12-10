@@ -1,6 +1,11 @@
+import Header from "./Header/Header";
+
 function App() {
-  return <>
-  <h2>hola</h2></>;
+  return (
+    <>
+      <Header /> 
+    </>
+  );
 }
 
 export default App;

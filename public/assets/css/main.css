@@ -1,0 +1,61 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    min-height: calc(100vh - 200px);
+}
+.title{
+    font-family: Montserrat-SemiBold;
+    color:  var(--wine);
+    margin-top: 50px;
+}
+.hr-gob{
+    margin: 10px 0 10px;
+    background-color: var(--gold);
+    border-top: 1px solid var(--gold);
+    opacity: 1;
+    margin-bottom: 50px;
+}
+.hr-gob::before{
+    content: " ";
+    width: 35px;
+    height: 5px;
+    background-color: var(--wine) !important;
+    display: block;
+    position: absolute;
+}
+a{
+    text-decoration: none !important;
+}
+a:hover{
+    text-decoration: none !important;
+}
+/* Barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+/* Fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+background-color: #f1f1f1;
+border-radius: 10px;
+}
+
+/* Barra de desplazamiento en sí */
+::-webkit-scrollbar-thumb {
+background-color: var(--pink);
+border-radius: 10px;
+}
+
+/* Color de la barra de desplazamiento al desplazarse hacia arriba */
+::-webkit-scrollbar-thumb:vertical:active {
+background-color: var(--pink);
+}
+
+.mi_espacio{
+    margin-top: 150px;
+}
+
+
