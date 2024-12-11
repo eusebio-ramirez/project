@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { isMobile } from "react-device-detect";
-
-import { fetchLinks } from "../json/headerLinks";
+import { fetchLinks } from "../../json/headerLinks";
 import "./header.css";
+import { Link } from "react-router";
 
 const Header = () => {
   const [links, setLinks] = useState([]);
@@ -96,7 +96,7 @@ const Header = () => {
                     onMouseEnter={() => handleMouseEnter(item.nombre)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div
+                    <Link
                       to={item.link}
                       className="nav-link"
                       onClick={() => {
@@ -104,7 +104,7 @@ const Header = () => {
                       }}
                     >
                       {item.nombre}
-                    </div>
+                    </Link>
                     {item.submenu ? (
                       <>
                         <ol
