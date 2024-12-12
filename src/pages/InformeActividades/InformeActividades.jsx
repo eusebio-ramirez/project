@@ -1,8 +1,8 @@
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import "./informeActividades.css";
 import { ProdContext } from "../../context/ProdContext";
-import { Search } from "../Search/Search";
-import { CardDatos } from "../CardDatos/CardDatos";
+import { Search } from "../../components/Search/Search";
+import { CardDatos } from "../../components/CardDatos/CardDatos";
 
 const InformeActividades = () => {
   const { product, setProduct } = useContext(ProdContext)

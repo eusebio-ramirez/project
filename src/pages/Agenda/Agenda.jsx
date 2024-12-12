@@ -1,31 +1,18 @@
 import esLocale from "@fullcalendar/core/locales/es";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import FullCalendar from "@fullcalendar/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { agenda } from "../../json/agenda";
 import "./agenda.css";
+import { useModal } from "../../hook/useModal";
 
 const Agenda = () => {
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  const handleClickOutside = (event) => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
-      setModalStatus(false);
-    }
-  };
 
   const [events, setEvents] = useState([]);
-  const [modalStatus, setModalStatus] = useState(false);
   const [eventData, setEventData] = useState([]);
-
-  const modalRef = useRef(null);
+  const {modalStatus, openModal,closeModal, modalRef} = useModal()
+  
 
   useEffect(() => {
     setEvents(agenda);
@@ -33,7 +20,7 @@ const Agenda = () => {
   }, []);
 
   const handleEventClick = (eventClickInfo) => {
-    setModalStatus(true);
+    openModal();
     const eventTitle = eventClickInfo.event.title;
     const eventPlace = eventClickInfo.event.extendedProps.place;
     const eventDescription = eventClickInfo.event.extendedProps.description;
@@ -63,7 +50,7 @@ const Agenda = () => {
                   <i
                     className="fa-sharp fa-solid fa-xmark"
                     onClick={() => {
-                      setModalStatus(false);
+                      closeModal();
                     }}
                   />
                 </div>

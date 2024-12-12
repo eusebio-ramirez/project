@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { links } from './json/headerLinks'
 import { Home } from "./pages/Home/Home";
 import HeaderNav from "./components/HeaderNav/HeaderNav.jsx";
-import InformeActividades from "./components/InformeActividades/InformeActividades.jsx";
+import InformeActividades from "./pages/InformeActividades/InformeActividades.jsx";
 import Agenda from './pages/Agenda/Agenda.jsx';
 
 function App() {
@@ -59,9 +59,9 @@ function App() {
         <Route path={links[5].submenu[8].subMenuUrl} element={<h1>{links[5].submenu[8].subMenuNombre}</h1>}></Route>
         <Route path={links[5].submenu[9].subMenuUrl} element={<h1>{links[5].submenu[9].subMenuNombre}</h1>}></Route>
         <Route path={links[5].submenu[10].subMenuUrl} element={<h1>{links[5].submenu[10].subMenuNombre}</h1>}></Route>
+        <Route path={"*"} element={<h1 style={{padding:"5rem"}}>No encontrado</h1>}></Route>
       </Routes>
     </BrowserRouter>
-
 
   </>;
 }
