@@ -1,0 +1,60 @@
+#calendar{
+    position: relative;
+}
+#modal-agenda{
+    width: 500px;
+    height: 700px;
+    position: absolute; /* Establece la posición del contenido como "absolute" */
+    top: 50%; /* Posiciona el contenido en el 50% superior del contenedor */
+    left: 50%; /* Posiciona el contenido en el 50% izquierdo del contenedor */
+    transform: translate(-50%, -50%); /* Ajusta la posición del contenido */
+    z-index: 900;
+    border-radius: 30px;
+    background-color: var(--whiteBackground);
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+#calendar .fc-direction-ltr .fc-daygrid-event.fc-event-end{
+    cursor: pointer;
+}
+#calendar .fc .fc-daygrid-day.fc-day-today{
+    background-color: var(--gold);
+}
+#calendar .fc .fc-button-primary{
+    background-color: var(--pink);
+    opacity: 1;
+}
+#calendar .close-icon .fa-sharp{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+#calendar #modal-agenda p{
+    color: var(--wine);
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+#modal-agenda .twitter-embed{
+    width: 100%;
+    height: 90%;
+}
+#modal-agenda .agenda-title{
+    font-weight: 700;
+}
+#modal-agenda .agenda-location .fa-location-dot{
+    margin-right: 10px;
+}
+@media (max-width: 576px){
+    #calendar{
+        padding-top: 50px;
+    }
+    #modal-agenda{
+        width: 90%;
+        height: 600px;
+        top: 70%;
+    }
+    .agenda{
+        margin-bottom: 50px;
+    }
+}

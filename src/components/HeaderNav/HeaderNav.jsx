@@ -7,7 +7,7 @@ import { NavItem } from "../NavItem/NavItem";
 
 
 
-const Header = () => {
+const HeaderNav = () => {
   const [overlay, setOverlay] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
 
@@ -16,7 +16,6 @@ const Header = () => {
   useEffect(() => {
     fetchLinks().then((links) => {
       setLinks(links)
-      console.log(links)
     })
   }, [])
 
@@ -153,4 +152,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderNav;
