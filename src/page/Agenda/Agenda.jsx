@@ -2,7 +2,7 @@ import { Box, Button } from "@mui/material";
 import { useCallback, useState } from "react";
 import Mensaje from "../../components/Message/Message";
 
-const Agenda = () => {
+const Agenda2 = () => {
   const [couter, setCounter] = useState(0);
   const [calculate] = useState(0);
 
@@ -24,4 +24,4 @@ const Agenda = () => {
   );
 };
 
-export default Agenda;
+export default Agenda2;
