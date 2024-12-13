@@ -1,0 +1,22 @@
+.error_container {
+    padding-top: 150px;
+    margin-bottom: 150px;
+    min-height: 200px;
+}
+.error_container h1{
+    color: var(--bs-blue);
+}
+.error_container p{
+    color: var(--bs-gray-700);
+}
+.error_container .btn_error{
+    background-color: var(--bs-blue);
+    color: #fff;
+    border-radius: 10px;
+    padding: 2px 10px;
+}
+@media (min-width: 577px) and (max-width: 820px){
+    .error_container{
+        min-height: 500px;
+    }
+}

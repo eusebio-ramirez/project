@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import { homePath } from "../../constant/paths";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import './header.css';
 
 const Header = () => {
     const grayscale = useSelector((state) => state.theme.grayscale);

@@ -1,0 +1,26 @@
+.componentNoticias .carruselImage {
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+}
+
+.componentNoticias .noticiaTitle {
+    cursor: pointer;
+}
+
+.componentNoticias .contentControlButtons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: .5rem;
+}
+
+.componentNoticias .contentControlButtons button {
+    padding: .2rem;
+    line-height: 0;
+    border-radius: 50%;
+}
+
+.componentNoticias .contentControlButtons .icon {
+    font-size: 1.5rem;
+}

@@ -1,5 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap';
-import reactIcon from '../../assets/images/react-icon.png'
+import reactIcon from '../../assets/images/react-icon.png';
 import { useSelector } from 'react-redux';
 
 const Footer = () => {
@@ -31,9 +31,9 @@ const Footer = () => {
                         <p className="mb-0">Copyrights © {currentYear} Todos los derechos reservados por Hidalgo de la Transformación</p>
                     </Col>
                     <Col className='d-flex justify-content-center' style={{ gap: '1.5rem' }} lg={6}>
-                        <a style={{ color: '#000', fontSize: '2rem'}} href='https://www.youtube.com/' target='_blank'><i class="bi bi-facebook"></i></a>
-                        <a style={{ color: '#000', fontSize: '2rem'}} href='https://www.youtube.com/' target='_blank'><i class="bi bi-instagram"></i></a>
-                        <a style={{ color: '#000', fontSize: '2rem'}} href='https://www.youtube.com/' target='_blank'><i class="bi bi-twitter-x"></i></a>
+                        <a style={{ color: '#000', fontSize: '2rem'}} href='https://www.youtube.com/' target='_blank'><i className="bi bi-facebook"></i></a>
+                        <a style={{ color: '#000', fontSize: '2rem'}} href='https://www.youtube.com/' target='_blank'><i className="bi bi-instagram"></i></a>
+                        <a style={{ color: '#000', fontSize: '2rem'}} href='https://www.youtube.com/' target='_blank'><i className="bi bi-twitter-x"></i></a>
                     </Col>
                 </Row>
             </Container>

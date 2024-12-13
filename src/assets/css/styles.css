@@ -6,15 +6,13 @@
     position: relative;
 }
 
-.headerPrincipal {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
 .container1 {
     margin-top: 3rem;
     min-height: 80vh;
+}
+
+.componentContainer {
+    padding-bottom: 3rem;
 }
 
 .principalTitle {
@@ -22,4 +20,16 @@
     margin-bottom: 1.5rem;
     color: var(--bs-blue);
     border-bottom: solid 2px var(--bs-gray-600);
+}
+
+.secondTitle {
+    padding-bottom: .5rem;
+    margin-bottom: 1.5rem;
+    color: var(--bs-info);
+    border-bottom: solid 2px var(--bs-gray-600);
+}
+
+.paragraphNormal {
+    font-size: larger;
+    text-align: justify;
 }

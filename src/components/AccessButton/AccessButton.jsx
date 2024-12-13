@@ -24,14 +24,14 @@ const AccessButton = () => {
             <div className={`contentAccess ${ grayscale ? 'grayscale' : '' }`}>
                 {options ? <div className="options">
                     <Button onClick={handleChangeSnow} className="accessButton btn btn-info text-white">
-                        <i class="bi bi-snow2"></i>
+                        <i className="bi bi-snow2"></i>
                     </Button>
                     <Button onClick={handleChangeTheme} className="accessButton btn btn-info text-white">
-                        <i class="bi bi-brilliance"></i>
+                        <i className="bi bi-brilliance"></i>
                     </Button>
                 </div> : null}
                 <Button onClick={openOptions} className="accessButton">
-                    <i class="bi bi-universal-access-circle"></i>
+                    <i className="bi bi-universal-access-circle"></i>
                 </Button>
             </div>
         </>
