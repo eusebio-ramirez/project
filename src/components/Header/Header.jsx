@@ -85,9 +85,7 @@ const Header = () => {
                 }}
               >
                 <li className="nav-item">
-                  <div to="/" className="nav-link">
-                    Inicio
-                  </div>
+                  <Link to={"/"} className="nav-link">Inicio</Link>
                 </li>
                 {links.map((item, index) => (
                   <li
@@ -108,9 +106,8 @@ const Header = () => {
                     {item.submenu ? (
                       <>
                         <ol
-                          className={`dropdown-menu ${
-                            activeSubmenu === item.nombre ? "show" : ""
-                          }`}
+                          className={`dropdown-menu ${activeSubmenu === item.nombre ? "show" : ""
+                            }`}
                           aria-labelledby="navbarDropdownMenuLink"
                         >
                           {item.submenu.map((item, index) => (
@@ -125,9 +122,8 @@ const Header = () => {
                           ))}
                         </ol>
                         <span
-                          className={`triangle ${
-                            activeSubmenu === item.nombre ? "show" : ""
-                          }`}
+                          className={`triangle ${activeSubmenu === item.nombre ? "show" : ""
+                            }`}
                         />
                       </>
                     ) : (
