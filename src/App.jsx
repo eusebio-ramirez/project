@@ -9,6 +9,7 @@ import Error404 from "./pages/Error404/Error404"
 import Agenda from "./pages/Agenda/Agenda"
 import InformacionInstitucional from "./pages/InformacionInstitucional/InformacionInstitucional"
 import InformeActividades from "./pages/InformeActividades/InformeActividades";
+import DetalleRubro from "./pages/Rubros/DetalleRubro/DetalleRubro";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/Agenda" element={<Agenda />} />
         <Route path="/InformeActividades" element={<InformeActividades />} />
         <Route path="/Rubros" element={<Rubros />} />
+        <Route path="/Rubros/:nombre" element={<DetalleRubro/>} />
         <Route path="/Servicios" element={<Servicios />} />
         <Route path="/Evaluacion" element={<Evaluacion />} />
         <Route path="/InformacionInstitucional" element={<InformacionInstitucional />} />
