@@ -1,79 +1,130 @@
-import esLocale from "@fullcalendar/core/locales/es";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import FullCalendar from "@fullcalendar/react";
-import { useEffect, useState } from "react";
-
-import { agenda } from "../../json/agenda";
-import "./agenda.css";
+import React, { useState, useEffect } from "react";
+import { Calendar, dateFnsLocalizer } from "react-big-calendar";
+import { format, parse, startOfWeek, getDay } from "date-fns";
+import es from "date-fns/locale/es";
+import moment from "moment";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import { Container, Modal } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import useModal from "../../hooks/useModal";
+import { agenda, fetchAgenda } from "../../json/agenda";
+import "./agenda.css";
+import { setAgenda } from "../../context/AgendaSlice";
+
+const locales = {
+  es: es,
+};
+
+const localizer = dateFnsLocalizer({
+  format: (date, formatStr, options) =>
+    format(date, formatStr, { ...options, locale: es }),
+  parse: (dateStr, formatStr, options) =>
+    parse(dateStr, formatStr, new Date(), { ...options, locale: es }),
+  startOfWeek: () => startOfWeek(new Date(), { locale: es }),
+  getDay: (date) => getDay(date, { locale: es }),
+  locales,
+});
+
+const messages = {
+  allDay: "Todo el día",
+  previous: "Anterior",
+  next: "Siguiente",
+  today: "Hoy",
+  month: "Mes",
+  week: "Semana",
+  day: "Día",
+  agenda: "Agenda",
+  date: "Fecha",
+  time: "Hora",
+  event: "Evento",
+  noEventsInRange: "No hay eventos en este rango.",
+  showMore: (total) => `+ Ver más (${total})`,
+};
 
 const Agenda = () => {
-  const [events, setEvents] = useState([]);
+  const grayscale = useSelector((state) => state.theme.grayscale);
+  const events = useSelector((state) => state.agenda.events);
+  const dispatch = useDispatch();
+  //const [events, setEvents] = useState([]);
   const [eventData, setEventData] = useState([]);
-  const {isModalOpen, openModal, closeModal, modalRef} = useModal();
+  const { isModalOpen, openModal, closeModal } = useModal();
+
+  const getAgenda = async () => {
+    const response = await fetchAgenda();
+    const data = await response;
+    const formattedEvents = data.map((item) => ({
+      id: item.id,
+      title: item.title,
+      start: moment(item.start, "YYYY-MM-DD").toDate(),
+      end: moment(item.start, "YYYY-MM-DD").toDate(),
+      place: item.place,
+      description: item.description,
+      color: item.color,
+    }));
+    dispatch(setAgenda(formattedEvents));
+    //setEvents(formattedEvents);
+  }
 
   useEffect(() => {
-    setEvents(agenda);
     window.scrollTo(0, 0);
+    getAgenda();
   }, []);
 
-  const handleEventClick = (eventClickInfo) => {
+  const handleSelectEvent = (event) => {
     openModal();
-    const eventTitle = eventClickInfo.event.title;
-    const eventPlace = eventClickInfo.event.extendedProps.place;
-    const eventDescription = eventClickInfo.event.extendedProps.description;
-    setEventData([eventTitle, eventPlace, eventDescription]);
+    setEventData([event.title, event.place, event.description]);
   };
 
-  const calendarOptions = {
-    plugins: [dayGridPlugin],
-    initialView: "dayGridMonth",
-    weekends: true,
-    events: events,
-    eventClick: handleEventClick,
-  };
+  const eventStyleGetter = (event) => ({
+    style: {
+      backgroundColor: event.color || "var(--defaultColor)",
+      borderRadius: "5px",
+      color: "white",
+      border: "none",
+      padding: "2px 5px",
+    },
+  });
 
   return (
     <>
-      <div id="calendar">
-        <div className="container">
-          <div className="row">
-            <div>
-              <h3 className="title">Agenda del Titular</h3>
-              <hr className="hr-gob" />
-            </div>
-            {isModalOpen ? (
-              <div ref={modalRef} id="modal-agenda">
-                <div className="close-icon">
-                  <i
-                    className="fa-sharp fa-solid fa-xmark"
-                    onClick={() => {
-                      closeModal();
-                    }}
-                  />
-                </div>
-                <p className="agenda-title">{eventData[0]}</p>
-                <p className="agenda-location">
-                  <i className="fa-solid fa-location-dot"></i>
-                  {eventData[1]}
-                </p>
-
-                <iframe
-                  id="url"
-                  src={eventData[2]}
-                  className="twitter-embed"
-                  allow="encrypted-media"
-                ></iframe>
-              </div>
-            ) : null}
-            <div className="container">
-              <div className="agenda">
-                <FullCalendar {...calendarOptions} locale={esLocale} />
-              </div>
-            </div>
-          </div>
+      <Container className={`container1 ${grayscale ? "grayscale" : ""}`}>
+        <h1 className="principalTitle">Agenda del Titular</h1>
+        <Modal
+          show={isModalOpen}
+          centered
+          size="lg"
+          className="agenda-modal"
+          onHide={closeModal}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>{eventData[0]}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p className="agenda-location">
+              <i className="bi bi-geo-alt-fill"></i>
+              {eventData[1]}
+            </p>
+            <iframe
+              id="url"
+              src={eventData[2]}
+              className="twitter-embed"
+              allow="encrypted-media"
+            ></iframe>
+          </Modal.Body>
+        </Modal>
+        <div className="componentContainer">
+          <Calendar
+            localizer={localizer}
+            events={events}
+            startAccessor="start"
+            endAccessor="end"
+            style={{ height: '70vh' }}
+            onSelectEvent={handleSelectEvent}
+            eventPropGetter={eventStyleGetter}
+            messages={messages}
+          />
         </div>
-      </div>
+      </Container>
     </>
   );
 };

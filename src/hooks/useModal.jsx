@@ -1,16 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 const useModal = () => {
-    const modalRef = useRef(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-    useEffect(() => {
-        document.addEventListener("mousedown", handleClickOutside);
-    
-        return () => {
-          document.removeEventListener("mousedown", handleClickOutside);
-        };
-      }, []);
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -20,13 +11,7 @@ const useModal = () => {
         setIsModalOpen(false);
     }
 
-    const handleClickOutside = (event) => {
-        if (modalRef.current && !modalRef.current.contains(event.target)) {
-            setIsModalOpen(false);
-        }
-    };
-
-    return {isModalOpen, openModal, closeModal, modalRef};
+    return { isModalOpen, openModal, closeModal };
 }
 
 export default useModal;
