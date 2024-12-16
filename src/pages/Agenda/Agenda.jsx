@@ -43,9 +43,9 @@ const messages = {
 
 const Agenda = () => {
   const grayscale = useSelector((state) => state.theme.grayscale);
-  const events = useSelector((state) => state.agenda.events);
+  const eventsGlobal = useSelector((state) => state.agenda.events);
   const dispatch = useDispatch();
-  //const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([]);
   const [eventData, setEventData] = useState([]);
   const { isModalOpen, openModal, closeModal } = useModal();
 
@@ -70,6 +70,15 @@ const Agenda = () => {
     getAgenda();
   }, []);
 
+  useEffect(() => {
+    const parsedEvents = eventsGlobal.map(event => ({
+      ...event,
+      start: new Date(event.start),
+      end: new Date(event.end),
+    }));
+    setEvents(parsedEvents);
+  }, [eventsGlobal])
+
   const handleSelectEvent = (event) => {
     openModal();
     setEventData([event.title, event.place, event.description]);
@@ -77,7 +86,7 @@ const Agenda = () => {
 
   const eventStyleGetter = (event) => ({
     style: {
-      backgroundColor: event.color || "var(--defaultColor)",
+      backgroundColor: event.color || "var(--bs-blue)",
       borderRadius: "5px",
       color: "white",
       border: "none",

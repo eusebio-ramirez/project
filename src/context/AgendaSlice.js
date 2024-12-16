@@ -8,8 +8,18 @@ const agendaSlice = createSlice({
     name: 'agenda',
     initialState,
     reducers: {
-        setAgenda: (state, action) => {
-            state.events = action.payload;
+        setAgenda: {
+            reducer: (state, action) => {
+                state.events = action.payload;
+            },
+            prepare: (events) => {
+                const serializableEvents = events.map(event => ({
+                    ...event,
+                    start: event.start.toISOString(),
+                    end: event.end.toISOString(),
+                }));
+                return { payload: serializableEvents };
+            }
         },
     }
 });
