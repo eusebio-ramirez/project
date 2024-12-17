@@ -1,8 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import TopNavBar from "./components/TopNavBar/top-nav-var"; // Importa tu barra de navegación
-import Agenda from "./page/Agenda";
+import TopNavBar from "./components/TopNavBar/Top-menu-nav";
+import ThemeToggleButton from "./components/ThemeToggleButton";
 import Container from "@mui/material/Container";
+import Agenda from "./page/Agenda/Agenda";
 import InformeActividades from "./page/InformeActividades/InformeActividades";
+import Home from "./page/Home/Home";
+import Rubros from "./page/Rubros/Rubros";
+import DetalleRubro from "./page/Rubros/DetalleRubro";
+import Servicios from "./page/Servicios/Servicios";
+import Evaluacion from "./page/Evaluacion/Evaluacion";
+import InformacionInstitucional from "./page/InformacionInsitucional/InformacionInsitucional";
 
 export default function App() {
   return (
@@ -10,16 +17,20 @@ export default function App() {
       <TopNavBar />
       <Container maxWidth="xl" component="main">
         <Routes>
-          <Route path="/" element={<h1>Bienvenido a la aplicación</h1>} />
+          <Route path="/" element={<Home />} />
           <Route path="/Agenda" element={<Agenda />} />
           <Route path="/InformeActividades" element={<InformeActividades />} />
-          <Route path="/Rubros" element={<Agenda />} />
-          <Route path="/Rubros/:nombre" element={<Agenda />} />
-          <Route path="/Servicios" element={<Agenda />} />
-          <Route path="/Evaluacion" element={<Agenda />} />
-          <Route path="/InformacionInstitucional" element={<Agenda />} />
+          <Route path="/Rubros" element={<Rubros />} />
+          <Route path="/Rubros/:nombre" element={<DetalleRubro />} />
+          <Route path="/Servicios" element={<Servicios />} />
+          <Route path="/Evaluacion" element={<Evaluacion />} />
+          <Route
+            path="/InformacionInstitucional"
+            element={<InformacionInstitucional />}
+          />
           <Route path="/*" element={<h1>404 Not Found</h1>} />
         </Routes>
+        <ThemeToggleButton />
       </Container>
     </>
   );

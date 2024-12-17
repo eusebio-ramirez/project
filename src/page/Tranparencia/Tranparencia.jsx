@@ -1,7 +1,7 @@
 import { useTheme } from "@emotion/react";
 import { Box, Typography } from "@mui/material";
 
-const InformeActividades = () => {
+const Transparencia = () => {
   const theme = useTheme();
 
   return (
@@ -16,9 +16,9 @@ const InformeActividades = () => {
         justifyContent: "center",
       }}
     >
-      <Typography variant="h4">InformeActividades</Typography>
+      <Typography variant="h4">Transparencia</Typography>
     </Box>
   );
 };
 
-export default InformeActividades;
+export default Transparencia;
