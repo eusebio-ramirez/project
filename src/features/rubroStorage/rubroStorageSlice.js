@@ -3,14 +3,14 @@ import { createSlice } from '@reduxjs/toolkit'
 // Este es un ejemplo propio
 export const rubroStorageSlice = createSlice({
     name:"rubroStorage", // Este es el nombre que invocas para llamar valores y funciones
-    initialState: {value: [1]}, // valores guardados, obj
+    initialState: {value: []}, // valores guardados, obj
     reducers:{
-        saluda: (state) =>{
-            state.value.push(1)
-        }, // aquí creas tus funcionalidades
+        setData: (state,action) =>{
+            state.value = action.payload
+        }, 
     }
 })
 
 // Exporta tus funciones
-export const {saluda} = rubroStorageSlice.actions
+export const {setData} = rubroStorageSlice.actions
 export default rubroStorageSlice.reducer
