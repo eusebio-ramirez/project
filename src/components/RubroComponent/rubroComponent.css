@@ -1,0 +1,21 @@
+.rowRubroComponent {
+  row-gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.rowRubroComponent .linkXLSX,
+.rowRubroComponent .linkHTML {
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--bs-blue);
+  padding: .1rem .7rem;
+  border-radius: 4px;
+}
+
+.rowRubroComponent .linkXLSX {
+  background-color: var(--bs-green);
+}
+
+.rowRubroComponent .linkHTML {
+  background-color: var(--bs-red);
+}

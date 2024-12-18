@@ -1,0 +1,18 @@
+.rowRubrosHistoricos {
+  row-gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.rowRubrosHistoricos .list-group-item.active {
+  color: var(--bs-list-group-color);
+  background-color: var(--bs-list-group-bg);
+  border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
+}
+
+.rowRubrosHistoricos .list-group-item.active:hover {
+  background-color: var(--bs-list-group-action-hover-bg);
+}
+
+.rowRubrosHistoricos .card-title {
+  color: var(--bs-blue);
+}

@@ -1,4 +1,4 @@
-export const rubros =[
+export const rubros = [
 	{
 		//"url":"Transparencia.html?ver=Normatividad",
 	    "icono":"Normatividad.png",
@@ -748,3 +748,11 @@ export const rubros =[
 	    ]
 	}
 ]
+
+export const fetchRubros = () => {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve(rubros);
+		}, 1000);
+	});
+}

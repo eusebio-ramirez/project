@@ -7,9 +7,11 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Container, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import useModal from "../../hooks/useModal";
-import { agenda, fetchAgenda } from "../../json/agenda";
 import "./agenda.css";
-import { setAgenda } from "../../context/AgendaSlice";
+import { setAgenda } from "../../features/Agenda/AgendaSlice";
+import useGet from "../../hooks/useGet";
+import Loader from "../../components/Loader/Loader";
+import ErrorFetch from "../../components/ErrorFetch/ErrorFetch";
 
 const locales = {
   es: es,
@@ -45,13 +47,12 @@ const Agenda = () => {
   const grayscale = useSelector((state) => state.theme.grayscale);
   const eventsGlobal = useSelector((state) => state.agenda.events);
   const dispatch = useDispatch();
+  const { data, loading, error } = useGet('https://api-project-ap9h.onrender.com/api/agenda');
   const [events, setEvents] = useState([]);
   const [eventData, setEventData] = useState([]);
   const { isModalOpen, openModal, closeModal } = useModal();
 
   const getAgenda = async () => {
-    const response = await fetchAgenda();
-    const data = await response;
     const formattedEvents = data.map((item) => ({
       id: item.id,
       title: item.title,
@@ -62,13 +63,15 @@ const Agenda = () => {
       color: item.color,
     }));
     dispatch(setAgenda(formattedEvents));
-    //setEvents(formattedEvents);
   }
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    getAgenda();
   }, []);
+
+  useEffect(() => {
+    if (data) getAgenda();
+  }, [data]);
 
   useEffect(() => {
     const parsedEvents = eventsGlobal.map(event => ({
@@ -77,7 +80,7 @@ const Agenda = () => {
       end: new Date(event.end),
     }));
     setEvents(parsedEvents);
-  }, [eventsGlobal])
+  }, [eventsGlobal]);
 
   const handleSelectEvent = (event) => {
     openModal();
@@ -86,7 +89,7 @@ const Agenda = () => {
 
   const eventStyleGetter = (event) => ({
     style: {
-      backgroundColor: event.color || "var(--bs-blue)",
+      backgroundColor: "var(--bs-blue)",
       borderRadius: "5px",
       color: "white",
       border: "none",
@@ -94,45 +97,58 @@ const Agenda = () => {
     },
   });
 
+  const content = () => {
+    if (loading) return <Loader />;
+    if (error) return <ErrorFetch />;
+    if (events.length !== 0) {
+      return (
+        <>
+          <Modal
+            show={isModalOpen}
+            centered
+            size="lg"
+            className="agenda-modal"
+            onHide={closeModal}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>{eventData[0]}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p className="agenda-location">
+                <i className="bi bi-geo-alt-fill"></i>
+                {eventData[1]}
+              </p>
+              <iframe
+                id="url"
+                src={eventData[2]}
+                className="twitter-embed"
+                allow="encrypted-media"
+              ></iframe>
+            </Modal.Body>
+          </Modal>
+          <div className="componentContainer">
+            <Calendar
+              localizer={localizer}
+              events={events}
+              startAccessor="start"
+              endAccessor="end"
+              style={{ height: '70vh' }}
+              onSelectEvent={handleSelectEvent}
+              eventPropGetter={eventStyleGetter}
+              messages={messages}
+            />
+          </div>
+        </>
+      );
+    }
+    return null;
+  }
+
   return (
     <>
       <Container className={`container1 ${grayscale ? "grayscale" : ""}`}>
         <h1 className="principalTitle">Agenda del Titular</h1>
-        <Modal
-          show={isModalOpen}
-          centered
-          size="lg"
-          className="agenda-modal"
-          onHide={closeModal}
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>{eventData[0]}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p className="agenda-location">
-              <i className="bi bi-geo-alt-fill"></i>
-              {eventData[1]}
-            </p>
-            <iframe
-              id="url"
-              src={eventData[2]}
-              className="twitter-embed"
-              allow="encrypted-media"
-            ></iframe>
-          </Modal.Body>
-        </Modal>
-        <div className="componentContainer">
-          <Calendar
-            localizer={localizer}
-            events={events}
-            startAccessor="start"
-            endAccessor="end"
-            style={{ height: '70vh' }}
-            onSelectEvent={handleSelectEvent}
-            eventPropGetter={eventStyleGetter}
-            messages={messages}
-          />
-        </div>
+        {content()}
       </Container>
     </>
   );
