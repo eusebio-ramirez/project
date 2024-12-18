@@ -4,9 +4,15 @@ import "./rubros.css";
 import { Container, Row } from "react-bootstrap";
 import { CardIconName } from "../../components/CardIconName/CardIconName";
 import { useFetchRubros } from "../../hooks/useFetchRubros";
+import { useDispatch, useSelector } from "react-redux";
+import { saluda } from "../../features/rubroStorage/rubroStorageSlice"; // importa del features
 
 const Rubros = () => {
-  const {rubros} = useFetchRubros()
+  const {rubros,recargarPeticion} = useFetchRubros() // Hook Personalizado || Llamado de API
+
+  const numero = useSelector((state) => state.rubroStorage.value) // nombres del counterSlice
+  const dispatch = useDispatch() // Utilización de metodos
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -22,8 +28,11 @@ const Rubros = () => {
           <CardIconName key={index} nombre={item.nombre} icono={item.icono}/>
         ))}
         <Link className="rubros_historicos" to="RubrosHistoricos">
-          Información Ejercicios Anteriores Art. 69 (48 Fracciones)
+          {numero}
         </Link>
+        <button onClick={()=>dispatch(saluda())}>Saluda</button>
+        <button onClick={()=> recargarPeticion()}>Rec</button>
+        {/*Metodo temporal importado de features || Uso de redux*/}
       </Row>
     </Container>
   );
