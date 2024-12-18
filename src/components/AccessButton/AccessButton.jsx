@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import './accessButton.css';
 import { useContext, useState } from "react";
 import { SnowContext } from "../../context/SnowContext";
-import { toggleGrayscale } from "../../context/ThemeSlice";
+import { toggleGrayscale } from "../../features/Theme/ThemeSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const AccessButton = () => {
