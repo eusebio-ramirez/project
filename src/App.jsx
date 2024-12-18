@@ -1,20 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavBarComponent from './Navbar/NavBarComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './themes.css';
+import { Rutas } from './routes/Rutas';
+import { ThemeProvider } from './context';
+import { Provider } from 'react-redux'
+import { store } from './store';
 
 
 function App() {
+  
+
   return (
-    <Router>
-      <div className="App">
-        <NavBarComponent />
-        <Routes>
-         
-        </Routes>
-      </div>
-    </Router>
+    <Provider store={store}>
+    <ThemeProvider>
+     <Rutas/>
+    </ThemeProvider>
+    </Provider>
   );
 }
 

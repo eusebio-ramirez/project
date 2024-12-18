@@ -1,0 +1,35 @@
+
+.bg-light {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .bg-dark {
+    background-color: #333333;
+    color: #ffffff;
+  }
+  
+
+  .bg-dark a {
+    color: #ffffff;
+  }
+  
+  .bg-dark a:hover {
+    color: #cccccc;
+  }
+  
+
+  .bg-dark .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .bg-dark .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+
+  .bg-dark .card {
+    background-color: #444444;
+    color: #ffffff;
+  }
+  

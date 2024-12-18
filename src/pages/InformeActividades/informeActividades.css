@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+.ldf_titulo h2{
+    text-align: center;
+    color: var(--pink);
+    margin:60px 10px 0px 0px;
+    font-family: Montserrat-Bold;
+}
+.hr-gob{
+    background-color: var(--gold);
+    border-top: 1px solid var(--gold);
+    opacity: 1;
+    margin-bottom: 30px;
+}
+.hr-gob::before{
+    content: " ";
+    width: 35px;
+    height: 5px;
+    background-color: var(--wine) !important;
+    display: block;
+    position: absolute;
+}
+
+/* ESTILOS INFORME ANUAL ACTIVIDADES */
+
+
+.card_container_informe {
+    width: 300px;
+    border: 1px solid var(--wine);
+    margin: 0px;
+    border-radius: 10px;
+    padding: 0px;
+}
+
+
+.bg-dark .card_container_informe {
+    border-color: #ffffff;
+    background-color: #444444;
+}
+
+.card_img {
+    max-width: 299px;
+    height: 165px;
+    border-radius: 10px 10px 0px 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.card_cintillo {
+    width: 299px;
+    height: 7px;
+    background-color: var(--gold);
+}
+
+.card_datos {
+    height: 110px;
+    padding: 20px;
+}
+
+.card_datos h5 {
+    color: var(--wine);
+    font-family: 'Montserrat-Bold';
+    font-weight: bold;
+}
+
+.card_datos h6 {
+    color: var(--wine);
+}
+
+.bg-dark .card_datos h5,
+.bg-dark .card_datos h6 {
+    color: #ffffff;
+}
+
+.card_anio_informe {
+    display: flex;
+    width: 299px;
+    height: 60px;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-card-anio {
+    width: 95px;
+    border-radius: 25px 25px;
+    background-color: var(--wine);
+    font-family: 'Montserrat-Bold';
+    color: white;
+    margin-bottom: 10px;
+}
+
+.btn-card-anio:hover {
+    background-color: var(--gold);
+}
+
+.bg-dark .btn-card-anio {
+    background-color: #ffffff;
+    color: var(--wine);
+}
+
+.bg-dark .btn-card-anio:hover {
+    background-color: var(--gold);
+    color: #ffffff;
+}
+

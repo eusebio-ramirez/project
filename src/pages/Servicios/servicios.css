@@ -1,0 +1,38 @@
+.card_container_servicio {
+    height: 390px;
+    border: 1px solid var(--wine);
+    margin: 20px 0;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: hidden;
+}
+
+.tarjeta h5 {
+    color: var(--pink);
+    font-family: 'Montserrat-SemiBold';
+}
+
+.tarjeta h6 {
+    color: var(--wine);
+}
+
+.textoJusticiado {
+    text-align: justify;
+}
+
+/* Estilos para el modo oscuro */
+.bg-dark .card_container_servicio {
+    border-color: #ffffff;
+}
+
+.bg-dark .tarjeta h5 {
+    color: #ffffff;
+}
+
+.bg-dark .tarjeta h6 {
+    color: #ffffff;
+}
+
+.bg-dark .tarjeta h5:hover {
+    color: rgb(255, 0, 68);
+}
