@@ -1,0 +1,12 @@
+.rowServicio {
+    row-gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.rowServicio .linkServicio {
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--bs-info);
+    padding: .1rem .7rem;
+    border-radius: 4px;
+  }

@@ -1,33 +1,46 @@
 import { useEffect } from "react";
+import { Container } from "react-bootstrap";
 import { servicios } from "../../json/servicios";
 import "./servicios.css";
+import { useDispatch, useSelector } from "react-redux";
+import useGet from "../../hooks/useGet";
+import { setServicios } from "../../features/Servicios/ServiciosSlice";
+import Loader from "../../components/Loader/Loader";
+import ErrorFetch from "../../components/ErrorFetch/ErrorFetch";
+import ListServicios from "../../components/Listservicios/ListServicios";
 
 const Servicios = () => {
+  const grayscale = useSelector((state) => state.theme.grayscale);
+  const servicios = useSelector((state) => state.servicios.data); 
+  const dispatch = useDispatch();
+  const { data, loading, error } = useGet('https://api-project-ap9h.onrender.com/api/servicios');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() =>{
+    dispatch(setServicios(data));
+  },[data]);
+
+  const content = () => {
+    if (loading) return <Loader />;
+    if (error) return <ErrorFetch />;
+    if (data) {
+      return (
+        <>
+          <ListServicios data={servicios} />
+        </>
+      );
+    }
+    return null;
+  }
+
   return (
-    <div className="container">
-      <div className="row">
-        <div>
-          <h3 className="title">Servicios</h3>
-          <hr className="hr-gob" />
-        </div>
-        {servicios.map((item, index) => (
-          <div key={index} className="col-md-3 col-sm-6 col-12">
-            <div className="card_container_servicio">
-              <div key={index} className="tarjeta">
-                <a href={item.url} target="_blank">
-                  <h5>{item.nombre}</h5>
-                </a>
-                <h6 className="textoJusticiado">{item.descripcion}</h6>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Container className={`container1 ${grayscale ? "grayscale" : ""}`}>
+      <h1 className="principalTitle">Servicios</h1>
+      {content()}
+    </Container>
   );
 };
 
