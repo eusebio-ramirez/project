@@ -5,7 +5,7 @@ import './error.css';
 
 const NotFound = () => {
   const navigate = useNavigate();
-  const [countdown, setCountdown] = useState(1000);
+  const [countdown, setCountdown] = useState(10);
 
   useEffect(() => {
     const timer = setInterval(() => {
