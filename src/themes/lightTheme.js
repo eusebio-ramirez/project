@@ -1,4 +1,7 @@
 const lightTheme = {
+  typography: {
+    fontFamily: "'Montserrat', 'Arial', sans-serif",
+  },
   palette: {
     mode: "light",
     primary: {
@@ -12,7 +15,7 @@ const lightTheme = {
       paper: "#ffffff",
     },
     text: {
-      primary: "#000000",
+      primary: "#691B32",
     },
   },
 };

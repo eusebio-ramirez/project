@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import TopNavBar from "./components/TopNavBar/Top-menu-nav";
 import ThemeToggleButton from "./components/ThemeToggleButton";
-import Container from "@mui/material/Container";
 import Agenda from "./page/Agenda/Agenda";
 import InformeActividades from "./page/InformeActividades/InformeActividades";
 import Home from "./page/Home/Home";
@@ -10,12 +9,13 @@ import DetalleRubro from "./page/Rubros/DetalleRubro";
 import Servicios from "./page/Servicios/Servicios";
 import Evaluacion from "./page/Evaluacion/Evaluacion";
 import InformacionInstitucional from "./page/InformacionInsitucional/InformacionInsitucional";
+import Footer from "./components/footer/Footer";
 
 export default function App() {
   return (
     <>
       <TopNavBar />
-      <Container maxWidth="xl" component="main">
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Agenda" element={<Agenda />} />
@@ -31,7 +31,8 @@ export default function App() {
           <Route path="/*" element={<h1>404 Not Found</h1>} />
         </Routes>
         <ThemeToggleButton />
-      </Container>
+        <Footer />
+      </div>
     </>
   );
 }

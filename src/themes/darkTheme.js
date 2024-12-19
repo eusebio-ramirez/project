@@ -1,4 +1,7 @@
 const darkTheme = {
+  typography: {
+    fontFamily: "'Montserrat', 'Arial', sans-serif",
+  },
   palette: {
     mode: "dark",
     primary: {
