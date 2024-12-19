@@ -1,6 +1,6 @@
 import { useTheme } from "@emotion/react";
 import { Box, Container, Typography } from "@mui/material";
-import AutoCarousel from "../../components/Carousel /AutoCarousel";
+import AutoCarousel from "../../components/Carousel/AutoCarousel";
 import TitlePage from "../../components/Titles/Title-page";
 
 const Home = () => {
