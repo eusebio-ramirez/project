@@ -2,28 +2,35 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { fetchLinks } from "../../json/headerLinks";
 import { Link } from "react-router";
 import { homePath } from "../../constant/paths";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useSelector } from "react-redux";
 import './header.css';
+// HF
+import { HeaderFooterContext } from "../../context/HeaderFooterContext";
 
 const Header = () => {
     const grayscale = useSelector((state) => state.theme.grayscale);
+    // HF
+    const { alternativeColor } = useContext(HeaderFooterContext);
     const [links, setLinks] = useState([]);
+
     const getLinks = async () => {
         const response = await fetchLinks();
         const data = await response;
         setLinks(data);
     };
+
     useEffect(() => {
         getLinks();
     }, []);
+
     return (
-        <Navbar expand="lg" bg="info" className={`headerPrincipal ${grayscale ? 'grayscale' : '' }`}>
+        <Navbar expand="lg" bg="info" className={`headerPrincipal ${grayscale ? 'grayscale' : '' } ${alternativeColor ? 'alternativeColor' : ''}`}>
             <Container>
                 <Link className="navbar-brand" to={homePath}>Dependencia</Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
-                    <Nav className="" variant="dark" >
+                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+                    <Nav className="" variant="dark">
                         {
                             links.map((element, index) => (
                                 element.submenu ? (
@@ -35,7 +42,7 @@ const Header = () => {
                                         }
                                     </NavDropdown>
                                 ) : (
-                                    <Nav.Item key={element.link} className="d-lg-flex align-items-center" >
+                                    <Nav.Item key={element.link} className="d-lg-flex align-items-center">
                                         <Link className="nav-link" to={element.link}>{element.nombre}</Link>
                                     </Nav.Item>
                                 )
@@ -46,6 +53,6 @@ const Header = () => {
             </Container>
         </Navbar>
     );
-}
+};
 
-export default Header
+export default Header;

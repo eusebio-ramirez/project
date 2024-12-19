@@ -1,12 +1,18 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import reactIcon from '../../assets/images/react-icon.png';
 import { useSelector } from 'react-redux';
+// HF
+import { useContext } from 'react'; 
+import { HeaderFooterContext } from '../../context/HeaderFooterContext';
 
 const Footer = () => {
     const grayscale = useSelector((state) => state.theme.grayscale);
+    // HF
+    const { alternativeColor } = useContext(HeaderFooterContext);
     const currentYear = new Date().getFullYear();
+
     return (
-        <footer className={`bg-info py-4 ${ grayscale ? 'grayscale' : '' }`}>
+        <footer className={`bg-info py-4 ${ grayscale ? 'grayscale' : '' } ${alternativeColor ? 'alternativeColor' : ''} footer`}>
             <Container className='text-center'>
                 <Row>
                     <Col className='pb-3 d-flex justify-content-center' lg={4}>
@@ -26,7 +32,7 @@ const Footer = () => {
                         <p className='mb-0'>Pachuca de Soto, Hidalgo, México</p>
                     </Col>
                 </Row>
-                <Row className="pt-3" style={{ borderTop: 'solid' }}>
+                <Row className="pt-3" style={{ borderTop: 'solid', borderColor: '#000' }}>
                     <Col lg={6}>
                         <p className="mb-0">Copyrights © {currentYear} Todos los derechos reservados por Hidalgo de la Transformación</p>
                     </Col>

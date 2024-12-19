@@ -5,15 +5,20 @@ import SnowProvider from './context/SnowProvider.jsx'
 import { Provider } from 'react-redux'
 import { store } from './app/store.js'
 import ProductProvider from './context/ProductProvider.jsx'
+// HF
+import HeaderFooterProvider from './context/HeaderFooterProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
       <ProductProvider>
         <SnowProvider>
-          <App />
+          {/* HF */}
+          <HeaderFooterProvider>   
+            <App />
+          </HeaderFooterProvider>
         </SnowProvider>
       </ProductProvider>
     </Provider>
   </StrictMode>,
-)
+);

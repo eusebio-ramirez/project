@@ -2,6 +2,21 @@
     filter: grayscale();
 }
 
+.alternativeColor {
+    background-color: purple !important;
+    color: #fff;
+}
+
+.alternativeColor.footer {
+    background-color: teal !important;
+}
+
+.alternativeColor i,
+.alternativeColor .nav-link,
+.alternativeColor .navbar-brand {
+    color: #fff;
+}
+
 .contentApp {
     position: relative;
 }
