@@ -1,5 +1,4 @@
 export const servicios = [
-
 {"url":"http://ruts.hidalgo.gob.mx/ver/1478","nombre":"Albergue Revolución","descripcion":"Otorgar servicio de hospedaje y alimentación a población que tengan pacientes con algún tratamiento médico en algún hospital."},
 {"url":"http://ruts.hidalgo.gob.mx/ver/616","nombre":"Albergue del Hospital del Niño DIF Hidalgo","descripcion":"Atención de hospedaje y alimentación para familiares acompañantes y pacientes del Hospital del Niño DIF Hidalgo."},
 {"url":"http://ruts.hidalgo.gob.mx/ver/484","nombre":"Apoyo con Estudios de gabinete y laboratorio y medicamentos","descripcion":"Disminuir los gastos extraordinarios en la población vulnerable con situaciones asociadas a la salud."},

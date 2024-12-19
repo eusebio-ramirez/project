@@ -1,25 +1,107 @@
-.card_container_servicio{
-    height: 390px;
-    border: 1px solid var(--wine);
-    margin: 20px 0;
-    border-radius: 10px;
-    padding: 20px;
-    overflow-y:hidden;
+.title {
+  margin-top: 7%;
 }
 
-.tarjeta h5{
-    color: var(--pink);
-    font-family: 'Montserrat-SemiBold';
-}
-.tarjeta h6{
-    color: var(--wine);
+.card_container_servicio {
+  height: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: white; 
+  border: 2px solid black; 
+  transition: 0.3s;
+  margin: 20px 30px;
+  border-radius: 30px;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.textoJusticiado{
-    text-align: justify;
+.icono {
+  width: 100px;
+  height: 100px;
+  background-color: #a02142;  /* Fondo guinda */
+  border-radius: 50%;         /* Hace que el fondo sea circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.tarjeta h5:hover {
-    color:#ABB2B9;
+.icono img {
+  max-width: 80%;  /* Controla el tamaño del SVG dentro del círculo */
+  max-height: 80%;
 }
+
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%; 
+  padding-top: 110px; 
+}
+
+.texto-contenedor {
+  overflow-y: auto; 
+  max-height: 180px; 
+  text-align: justify;
+  padding: 10px;
+}
+
+
+.texto-contenedor::-webkit-scrollbar {
+  width: 5px; 
+}
+
+.texto-contenedor::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.09); 
+  border-radius: 10px; 
+}
+
+.texto-contenedor::-webkit-scrollbar-track {
+  background-color: transparent; 
+}
+
+.tarjeta h5 {
+  color: black; 
+  font-family: "Montserrat-SemiBold";
+  font-size: 1em;
+  margin-bottom: 10px; 
+  text-align: left;
+  font-weight: bold; 
+}
+
+.tarjeta h6 {
+  color: black; 
+  font-size: 1em;
+  margin-bottom: 40px; 
+  font-weight: normal;
+}
+
+.btn-link {
+  background-color: #a02142; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none !important;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-link:hover {
+  background-color: #691b31 !important;
+  color: white !important;
+}
+
 
