@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export const links = [
     {
         "nombre" : "Agenda del Titular",
@@ -105,3 +106,41 @@ export const fetchLinks=()=>{
         }, 1000);
     })
 }
+=======
+export const links = [
+  {
+    "nombre": "Agenda del Titular",
+    "link": "/Agenda",
+  },
+  {
+    "nombre": "Informe de Actividades",
+    "link": "/InformeActividades",
+  },
+  {
+    "nombre": "Transparencia",
+    "link": "/Rubros",
+  },
+  {
+    "nombre": "Servicios",
+    "link": "/Servicios",
+  },
+  {
+    "nombre": "Evaluación y Monitoreo",
+    "link": "/Evaluacion",
+  },
+  {
+    "nombre": "Información Institucional",
+    "link": "/InformacionInstitucional",
+
+  }
+]
+
+
+export const fecthData = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(links)
+    }, 1000);
+  })
+}
+>>>>>>> ed9fbef5b5ad82f3fda83773f9437cb603ac8584
