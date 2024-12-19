@@ -1,28 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit'
-// Crea tu carpeta, crea un slice para guardar tus funciones dentro del redux
-// Este es un ejemplo propio
-export const rubroStorageSlice = createSlice({
-    name:"rubroStorage", // Este es el nombre que invocas para llamar valores y funciones
-<<<<<<< HEAD
-    initialState: {value: []}, // valores guardados, obj
-    reducers:{
-        setData: (state,action) =>{
-            state.value = action.payload
-        }, 
-=======
-    initialState: {value: [1]}, // valores guardados, obj
-    reducers:{
-        saluda: (state) =>{
-            state.value.push(1)
-        }, // aquí creas tus funcionalidades
->>>>>>> a055b9545206049d749a1292e02eaf487183b7e4
-    }
-})
+import { createSlice } from '@reduxjs/toolkit';
 
-// Exporta tus funciones
-<<<<<<< HEAD
-export const {setData} = rubroStorageSlice.actions
-=======
-export const {saluda} = rubroStorageSlice.actions
->>>>>>> a055b9545206049d749a1292e02eaf487183b7e4
-export default rubroStorageSlice.reducer
+// Crea un slice para gestionar el estado de rubroStorage
+export const rubroStorageSlice = createSlice({
+    name: "rubroStorage", // Nombre del slice
+    initialState: { value: [] }, // Estado inicial
+    reducers: {
+        // Acción para establecer datos
+        setData: (state, action) => {
+            state.value = action.payload;
+        },
+        // Acción para agregar un valor al estado
+        saluda: (state) => {
+            state.value.push(1);
+        },
+    },
+});
+
+// Exporta las acciones
+export const { setData, saluda } = rubroStorageSlice.actions;
+
+// Exporta el reducer por defecto
+export default rubroStorageSlice.reducer;
