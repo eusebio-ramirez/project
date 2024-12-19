@@ -3,14 +3,17 @@ import "./rubros.css";
 import { Button, Container, Row } from "react-bootstrap";
 import { CardIconName } from "../../components/CardIconName/CardIconName";
 import { useFetchRubros } from "../../hooks/useFetchRubros";
+import { ButtonReLoad } from "../../components/ButtonReLoad/ButtonReLoad";
 
 
 const Rubros = () => {
-  const { rubros, recargarPeticion } = useFetchRubros() // Hook Personalizado || Llamado de API
-
+  const { rubros, isLoading, recargarPeticion } = useFetchRubros() // Hook Personalizado || Llamado de API
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  
+
 
 
   return (
@@ -22,7 +25,9 @@ const Rubros = () => {
         {rubros.map((item, index) => (
           <CardIconName key={index} nombre={item.nombre} icono={item.icono} />
         ))}
-        <Button variant="danger" onClick={recargarPeticion}>Recargar</Button>
+        <ButtonReLoad loanding={isLoading} metodo={recargarPeticion}>
+          Recargar
+        </ButtonReLoad>
       </Row>
     </Container>
   );
