@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import { BrowserRouter, Route } from "react-router";
-import { Routes } from "react-router";
-import { useState } from "react";
-import Header from "./components/Header/Header";
-import Inicio from "./pages/Inicio/Inicio";
-import InformeActividades from "./pages/InformeActividades/InformeActividades";
-
-function App() {
-  return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/InformeActividades" element={<InformeActividades />} />
-      </Routes>
-    </BrowserRouter>
-=======
 import { Route, Routes } from "react-router-dom";
 import TopNavBar from "./components/TopNavBar/Top-menu-nav";
 import ThemeToggleButton from "./components/ThemeToggleButton";
@@ -52,7 +34,6 @@ export default function App() {
         <Footer />
       </div>
     </>
->>>>>>> ed9fbef5b5ad82f3fda83773f9437cb603ac8584
   );
 }
 
