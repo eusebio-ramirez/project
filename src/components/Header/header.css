@@ -11,9 +11,6 @@
 .navbar-collapse{
     justify-content: end;
 }
-.bg-gob{
-    background-color: var(--pink);
-}
 .nav-link{
     color: #fff !important;
 }

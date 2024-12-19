@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { isMobile } from "react-device-detect";
+import { ThemeContext } from "../../context/Theme/ThemeContext";
 import { fetchLinks } from "../../json/headerLinks";
 import "./header.css";
 import { Link } from "react-router";
@@ -8,6 +9,7 @@ const Header = () => {
   const [links, setLinks] = useState([]);
   const [overlay, setOverlay] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const { themeColor } = useContext(ThemeContext);
 
   useEffect(() => {
     fetchLinks().then((links) => {
@@ -18,6 +20,7 @@ const Header = () => {
   const handleMouseEnter = (submenu) => {
     setActiveSubmenu(submenu);
   };
+
   const handleMouseLeave = () => {
     setActiveSubmenu(null);
   };
@@ -27,6 +30,8 @@ const Header = () => {
     div.classList.remove("show");
     setOverlay(false);
   };
+
+  console.log("Header color:", themeColor.header);
 
   return (
     <>
@@ -41,7 +46,7 @@ const Header = () => {
           aria-controls="navbarNav"
         ></div>
       ) : null}
-      <div id="header">
+      <div id="header" style={{ backgroundColor: themeColor.header }}>
         <nav className="navbar navbar-expand-lg navbar-light bg-gob">
           <div className="container-fluid">
             <div className="nav-link active" aria-current="page" to="/">
@@ -85,7 +90,9 @@ const Header = () => {
                 }}
               >
                 <li className="nav-item">
-                  <Link to={"/"} className="nav-link">Inicio</Link>
+                  <Link to={"/"} className="nav-link">
+                    Inicio
+                  </Link>
                 </li>
                 {links.map((item, index) => (
                   <li
@@ -106,8 +113,9 @@ const Header = () => {
                     {item.submenu ? (
                       <>
                         <ol
-                          className={`dropdown-menu ${activeSubmenu === item.nombre ? "show" : ""
-                            }`}
+                          className={`dropdown-menu ${
+                            activeSubmenu === item.nombre ? "show" : ""
+                          }`}
                           aria-labelledby="navbarDropdownMenuLink"
                         >
                           {item.submenu.map((item, index) => (
@@ -122,8 +130,9 @@ const Header = () => {
                           ))}
                         </ol>
                         <span
-                          className={`triangle ${activeSubmenu === item.nombre ? "show" : ""
-                            }`}
+                          className={`triangle ${
+                            activeSubmenu === item.nombre ? "show" : ""
+                          }`}
                         />
                       </>
                     ) : (

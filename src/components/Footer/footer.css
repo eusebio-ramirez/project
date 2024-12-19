@@ -1,0 +1,32 @@
+footer {
+    background-color: #5c1f32; /* Fondo del footer */
+    color: white;
+    padding: 20px 0; /* Ajusta el relleno vertical */
+    margin-top: 0; /* Asegúrate de que no tenga margen superior */
+  }
+  footer .row {
+    margin: 0; /* Elimina los márgenes negativos */
+    padding: 0; /* Elimina los rellenos */
+  }
+  
+  footer .container {
+    padding: 0; /* Ajusta el relleno interno del contenedor */
+  }
+  
+  footer .text-center {
+    margin-bottom: 0; /* Evita márgenes innecesarios */
+  }
+  
+  body {
+    margin: 0; /* Asegúrate de que el margen global no sea el problema */
+    padding: 0; /* Asegúrate de que el relleno global no sea el problema */
+  }
+  
+  html {
+    height: 100%; /* Garantiza que no haya espacio innecesario */
+  }
+  
+  #root {
+    min-height: 100%; /* Asegura que el contenedor principal ocupe todo el espacio */
+  }
+  

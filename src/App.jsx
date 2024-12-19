@@ -1,6 +1,8 @@
 import { BrowserRouter, Route } from "react-router";
 import { Routes } from "react-router";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
 import Inicio from "./pages/Inicio/Inicio";
 import Rubros from "./pages/Rubros/Rubros"
 import Servicios from "./pages/Servicios/Servicios"
@@ -26,6 +28,8 @@ function App() {
         <Route path="/InformacionInstitucional" element={<InformacionInstitucional />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
+      <Footer />
+      <ThemeSwitcher/>  
     </BrowserRouter>
   );
 }
