@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./rubros.css";
-import { Button, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { CardIconName } from "../../components/CardIconName/CardIconName";
 import { useFetchRubros } from "../../hooks/useFetchRubros";
 import { ButtonReLoad } from "../../components/ButtonReLoad/ButtonReLoad";
