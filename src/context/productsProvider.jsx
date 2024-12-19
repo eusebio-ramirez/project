@@ -1,24 +1,13 @@
-import { useEffect, useState } from "react";
-import { ProductsContext } from "./productsContext";
+import { useState } from "react";
+import { ProductsContext } from "./ProductsContext";
 
-const ProductProvider = ({ children }) => {
+
+export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        setLoading(false);
-      });
-  }, []);
 
   return (
-    <ProductsContext.Provider value={{ products, loading }}>
+    <ProductsContext.Provider value={{ products, setProducts }}>
       {children}
     </ProductsContext.Provider>
   );
 };
-
-export default ProductProvider;
