@@ -3,20 +3,21 @@ import { fetchLinks } from "../../json/headerLinks";
 import { Link } from "react-router";
 import { homePath } from "../../constant/paths";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import './header.css';
+import useGet from "../../hooks/useGet";
+import { setMenu } from "../../features/Menu/MenuSlice";
 
 const Header = () => {
     const grayscale = useSelector((state) => state.theme.grayscale);
-    const [links, setLinks] = useState([]);
-    const getLinks = async () => {
-        const response = await fetchLinks();
-        const data = await response;
-        setLinks(data);
-    };
+    const menu = useSelector((state) => state.menu.data);
+    const dispatch = useDispatch();
+    const { data } = useGet('https://api-project-ap9h.onrender.com/api/menu');
+
     useEffect(() => {
-        getLinks();
-    }, []);
+        dispatch(setMenu(data));
+    }, [data]);
+
     return (
         <Navbar expand="lg" bg="info" className={`headerPrincipal ${grayscale ? 'grayscale' : '' }`}>
             <Container>
@@ -25,7 +26,7 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
                     <Nav className="" variant="dark" >
                         {
-                            links.map((element, index) => (
+                            menu.map((element, index) => (
                                 element.submenu ? (
                                     <NavDropdown className="d-lg-flex align-items-center" key={element.link} title={element.nombre}>
                                         {
