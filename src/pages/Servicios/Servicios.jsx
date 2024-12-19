@@ -1,18 +1,29 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./servicios.css";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Busqueda from "../../components/Busqueda/Busqueda";
+import { fetchServicios } from "./serviciosSlice";
 
 const Servicios = () => {
   const servicios = useSelector((state) => state.servicios.servicios);
+  const dispatch = useDispatch();
 
   const [busqueda, setBusqueda] = useState('');
   const [resultados, setResultados] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    dispatch(fetchServicios());
   }, []);
+
+
+
+  useEffect(() => {
+    if (servicios.length > 0) {
+      setResultados(servicios);
+    }
+  }, [servicios]);
 
   const handleBusqueda = (texto) => {
     setBusqueda(texto);
