@@ -1,6 +1,6 @@
 import React, { useContext, useState, useCallback } from "react";
 import { ThemeContext } from "../../context/Theme/ThemeContext";
-import "./ThemeSwitcher.css";
+import "./themeSwitcher.css";
 
 const ThemeSwitcher = () => {
   const { changeThemeColor } = useContext(ThemeContext);
@@ -33,7 +33,7 @@ const ThemeSwitcher = () => {
 
   return (
     <>
-      {currentTheme === "navidad" && <div className="snowflakes"></div>}
+      {currentTheme === "navidad" && <div className=""></div>}
       <button className="theme-switcher-btn" onClick={switchTheme}>
         {currentTheme === "default" && <i className="fas fa-sun"></i>}
         {currentTheme === "navidad" && <i className="fas fa-snowflake"></i>}
