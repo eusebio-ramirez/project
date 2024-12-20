@@ -10,6 +10,7 @@ import Servicios from "./page/Servicios/Servicios";
 import Evaluacion from "./page/Evaluacion/Evaluacion";
 import InformacionInstitucional from "./page/InformacionInsitucional/InformacionInsitucional";
 import Footer from "./components/footer/Footer";
+import NotFound from "./page/NotFound";
 
 export default function App() {
   return (
@@ -28,7 +29,7 @@ export default function App() {
             path="/InformacionInstitucional"
             element={<InformacionInstitucional />}
           />
-          <Route path="/*" element={<h1>404 Not Found</h1>} />
+          <Route path="/*" element={<NotFound/>} />
         </Routes>
         <ThemeToggleButton />
         <Footer />
