@@ -8,7 +8,7 @@ import Rubros from "./page/Rubros/Rubros";
 import DetalleRubro from "./page/Rubros/DetalleRubro";
 import Servicios from "./page/Servicios/Servicios";
 import Evaluacion from "./page/Evaluacion/Evaluacion";
-import InformacionInstitucional from "./page/InformacionInsitucional/InformacionInsitucional";
+// import InformacionInstitucional from "./page/InformacionInsitucional/InformacionInsitucional";
 import Footer from "./components/footer/Footer";
 import NotFound from "./page/NotFound";
 
@@ -25,11 +25,12 @@ export default function App() {
           <Route path="/Rubros/:nombre" element={<DetalleRubro />} />
           <Route path="/Servicios" element={<Servicios />} />
           <Route path="/Evaluacion" element={<Evaluacion />} />
+          {/* 
           <Route
             path="/InformacionInstitucional"
             element={<InformacionInstitucional />}
-          />
-          <Route path="/*" element={<NotFound/>} />
+          /> */}
+          <Route path="/*" element={<NotFound />} />
         </Routes>
         <ThemeToggleButton />
         <Footer />
