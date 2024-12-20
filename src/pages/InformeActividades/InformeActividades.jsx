@@ -1,83 +1,69 @@
-import { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import "./informeActividades.css";
-import { ProductContext } from "../../context/ProductContext";
 import SearchComponent from "../../components/Search/SearchComponent";
-import Card from "../../components/Card/Card";
+import CardCustom from "../../components/Card/Card";
+import useGet from "../../hooks/useGet";
+import { useDispatch, useSelector } from "react-redux";
+import { Container, Row } from "react-bootstrap";
+import Loader from "../../components/Loader/Loader";
+import ErrorFetch from "../../components/ErrorFetch/ErrorFetch";
+import { setInforme } from "../../features/Informe/InformeSlice";
 
 const InformeActividades = () => {
-    const inputRef = useRef(null);
+    const { data, loading, error } = useGet('https://fakestoreapi.com/products');
+    const grayscale = useSelector((state) => state.theme.grayscale);
+    const informe = useSelector((state) => state.informe.data);
+    const dispatch = useDispatch();
     const [search, setSearch] = useState('');
-    const [counter, setCounter] = useState(0);
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    const { products, setProducts } = useContext(ProductContext);
-
     useEffect(() => {
-        init();
-    }, []);
-
-    const init = async () => {
-        try {
-            const response = await fetch("https://fakestoreapi.com/products");
-            if (!response.ok) {
-                throw new Error(`Error ${response.status}: ${response.statusText}`);
-            }
-            const data = await response.json(); // Obtener los datos correctamente
-            setProducts(data);
-        } catch (error) {
-            console.log(error.message || "Error al momento de consumir api");
-        }
-    };
+        dispatch(setInforme(data));
+    }, [data]);
 
     const memoizedHandleSearch = useCallback((event) => {
         setSearch(event.target.value);
     }, []);
 
     const filteredProducts = useMemo(() => {
-        return products.filter((product) =>
+        return informe.filter((product) =>
             product.category.toLowerCase().includes(search.toLowerCase())
         );
-    }, [products, search]);
+    }, [informe, search]);
 
-    const handleFocus = () => {
-        inputRef.current.focus();
-    }
-
-    return (
-        <div className="container">
-            <div className="row">
-                <div>
-                    <h3 className="title">
-                        Informe Anual de Actividades de la Presidenta del Patronato
-                    </h3>
-                    <button
-                        onClick={() => {
-                            setCounter(counter + 1);
-                        }}
-                    >
-                        +
-                    </button>
-                    <hr className="hr-gob" />
+    const content = () => {
+        if (loading) return <Loader />;
+        if (error) return <ErrorFetch />;
+        if (data) {
+            return (
+                <>
                     <SearchComponent
                         placeholder="Filtrar productos"
-                        className={"mb-4"}
+                        className={"mb-4 searchComponentInforme"}
                         search={search}
                         searchItem={memoizedHandleSearch}
                     />
-                    <input ref={inputRef} type="text" placeholder="Focus" />
-                    <button onClick={handleFocus}>Enfocar input</button>
-                </div>
-                {filteredProducts.map((item) => (
-                    <Card key={item.id} product={item} />
-                ))}
-                <br />
-                <div>
-                    <hr className="hr-gob" />
-                </div>
-            </div>
-        </div>
+                    <Row className="informeContent">
+                        {filteredProducts.map((item) => (
+                            <CardCustom key={item.id} product={item} />
+                        ))}
+                    </Row>
+                </>
+            );
+        }
+        return null;
+    }
+
+    return (
+        <>
+            <Container className={`container1 ${grayscale ? "grayscale" : ""}`}>
+                <h1 className="principalTitle">Informe Anual de Actividades de la Presidenta del Patronato</h1>
+                {content()}
+            </Container>
+        </>
     );
 };
 

@@ -1,23 +1,30 @@
-import { memo } from "react";
+import { memo, useState } from "react";  
+import { Card, Col } from "react-bootstrap"; 
+import './card.css';  
 
-const Card = ({ product }) => {
-  const { image, category, price } = product;
-  console.log("Card renderizado");
+const CardCustom = ({ product }) => {  
+  const { image, category, price } = product;  
+   
+  const [isFavorite, setIsFavorite] = useState(false);  
+ 
+  const toggleFavorite = () => {  
+    setIsFavorite(prev => !prev);  
+  };  
+
   return (
-    <div className="col-md-3 col-sm-6 col-12">
-      <div className="card_container_informe">
-        <div
-          className="card_img"
-          style={{ backgroundImage: `url("${image}")` }}
-        ></div>
-        <div className="card_cintillo"></div>
-        <div className="card_datos">
-          <h5>{category}</h5>
-          <h6>{price}</h6>
-        </div>
-      </div>
-    </div>
-  );
-};
+    <Col xl={4} lg={6} md={6}>  
+      <Card className="cardCustom">  
+        <Card.Img variant="top" src={image} />  
+        <Card.Body>  
+          <Card.Title>{category}</Card.Title>  
+          <Card.Text>{price}</Card.Text>
+          <button onClick={toggleFavorite} className="favorite-button">  
+            {isFavorite ? <i className="bi bi-heart-fill"></i> : <i className="bi bi-heart"></i>}  
+          </button>  
+        </Card.Body>  
+      </Card>  
+    </Col>  
+  );  
+};  
 
-export default memo(Card);
+export default memo(CardCustom);

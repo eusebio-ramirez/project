@@ -1,102 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
-
-.ldf_titulo h2 {
-    text-align: center;
-    color: var(--pink);
-    margin: 60px 10px 0px 0px;
-    font-family: Montserrat-Bold;
-}
-
-.hr-gob {
-    background-color: var(--gold);
-    border-top: 1px solid var(--gold);
-    opacity: 1;
-    margin-bottom: 30px;
-}
-
-.hr-gob::before {
-    content: " ";
-    width: 35px;
-    height: 5px;
-    background-color: var(--wine) !important;
+.searchComponentInforme {
     display: block;
-    position: absolute;
+    width: 100%;
+    padding: .3rem 1rem;
+    margin-bottom: 1rem;
 }
 
-/* ESTILOS INFORME ANUAL ACTIVIDADES */
-
-.card_container_informe {
-    width: 300px;
-    border: 1px solid var(--wine);
-    margin: 0px;
-    border-radius: 10px;
-    padding: 0px;
-}
-
-.card_img {
-    max-width: 299px;
-    height: 165px;
-    border-radius: 10px 10px 0px 0px;
-    padding: 0px;
-    margin: 0px;
-}
-
-.card_cintillo {
-    width: 299px;
-    height: 7px;
-    background-color: var(--gold);
-}
-
-.card_datos {
-    height: 110px;
-    padding: 20px;
-}
-
-.card_datos h5 {
-    color: var(--wine);
-    font-family: 'Montserrat-Bold';
-    font-weight: bold;
-}
-
-.card_datos h6 {
-    color: var(--wine);
-}
-
-.card_anio_informe {
-    display: flex;
-    width: 299px;
-    height: 60px;
-    padding: 15px;
-    justify-content: center;
-    align-items: center;
-}
-
-/*
-
-.card_anio .bg-secondary a{
-    color: #fff;
-    text-decoration: none;
-}
-@media (max-width:576px) {
-    .card_anio p{
-        font-size: 20px;
-    }
-    .card_anio h5, .card_anio h6{
-        font-size: 25px;
-        font-family: Montserrat-Bold;
-    }
-}
-*/
-
-.btn-card-anio {
-    width: 95px;
-    border-radius: 25px 25px;
-    background-color: var(--wine);
-    font-family: 'Montserrat-Bold';
-    color: white;
-    margin-bottom: 10px;
-}
-
-.btn-card-anio:hover {
-    background-color: var(--gold);
+.informeContent {
+    margin-bottom: 3rem;
+    row-gap: 1.5rem;
 }
