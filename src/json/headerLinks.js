@@ -42,10 +42,6 @@ export const links = [
         "link" : "/Servicios",
     },
     {
-        "nombre" : "Evaluación y Monitoreo",
-        "link" : "/EvaluacionMonitoreo",
-    },
-    {
         "nombre" : "Información Institucional",
         "link" : "/InformacionInstitucional",
         "submenu" : [

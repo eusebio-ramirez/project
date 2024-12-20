@@ -5,10 +5,12 @@ import App from './App.jsx'
 import Navbar from './components/navbar/Navbar.jsx'
 import Footer from './components/footer/Footer.jsx'
 
+import { ProductsProvider } from './context/ProductsProvider.jsx';
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Navbar />
-    <App />
-    <Footer />
+    <ProductsProvider>
+      <App />
+    </ProductsProvider>
   </StrictMode>,
 )
