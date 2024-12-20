@@ -18,7 +18,7 @@ const Error404 = () => {
         <h1>Error 404: Página no encontrada</h1>
         <p>Lo siento, la página que está buscando no existe.</p>
         <div>
-          <Button onClick={() => redirect()}><i class="bi bi-arrow-left-circle-fill"></i> Volver a Inicio</Button>
+          <Button onClick={() => redirect()}><i className="bi bi-arrow-left-circle-fill"></i> Volver a Inicio</Button>
         </div>
       </Container>
     </>
