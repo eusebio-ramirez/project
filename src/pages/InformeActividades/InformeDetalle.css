@@ -1,0 +1,52 @@
+.informe-detalle {
+    transition: all 0.3s ease;
+    border: 2px solid #eca02d
+  }
+  
+  .informe-detalle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .informe-detalle.dark-theme {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border: 2px solid #038f88;
+  }
+  
+  .informe-detalle.dark-theme .card-title {
+    color: #f8f9fa;
+  }
+  
+  .informe-detalle.dark-theme .card-text {
+    color: #d1d1d1;
+  }
+  
+  .informe-detalle .card-img-top {
+    max-height: 300px;
+    object-fit: contain;
+  }
+  
+  .informe-detalle .card-body {
+    padding: 2rem;
+  }
+  
+  .informe-button {
+    transition: all 0.3s ease;
+  }
+  
+  .informe-button:hover {
+    transform: translateY(-2px);
+  }
+  
+  .informe-button.dark-theme {
+    background-color: #038f88;
+    border-color: #038f88;
+    color: #f8f9fa;
+  }
+  
+  .informe-button.dark-theme:hover {
+    background-color: #026e69;
+    border-color: #026e69;
+    color: #ffffff;
+  }

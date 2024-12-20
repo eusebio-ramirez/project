@@ -1,0 +1,28 @@
+.informe-card {
+  transition: all 0.3s ease;
+  border: 2px solid #eca02d
+}
+
+.informe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.informe-card.dark-theme {
+  background-color: #343a40;
+  color: #f8f9fa;
+  border: 2px solid #038f88; 
+}
+
+.informe-card.dark-theme .card-title {
+  color: #f8f9fa;
+}
+
+.informe-card.dark-theme .card-text {
+  color: #d1d1d1;
+}
+
+.informe-card.dark-theme .btn-outline-light:hover {
+  background-color: #038f88; 
+  border-color: #038f88;
+}

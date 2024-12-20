@@ -1,0 +1,70 @@
+.acordeonTabla {
+  margin-bottom: 2rem;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.acordeonTabla td {
+  vertical-align: middle;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.acordeonTabla .title-row td {
+  padding: 1.5rem 1rem;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.acordeonTabla .content-row {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.acordeonTabla .content-row:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.acordeonTabla h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.acordeonTabla .title-cell h3 {
+  font-size: 1.4rem;
+}
+
+.acordeonTabla .icon-cell {
+  width: 80px;
+}
+
+.acordeonTabla .button-cell {
+  width: 120px;
+}
+
+.acordeonTabla .text-left {
+  text-align: left;
+}
+
+.custom-button {
+  transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos para modo oscuro */
+.table-dark.acordeonTabla .title-row td {
+  background-color: #343a40;
+}
+
+.table-dark.acordeonTabla .content-row {
+  box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+}
+
+.table-dark.acordeonTabla .content-row:hover {
+  box-shadow: 0 4px 8px rgba(255,255,255,0.2);
+}

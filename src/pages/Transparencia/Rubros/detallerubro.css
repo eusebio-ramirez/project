@@ -1,0 +1,134 @@
+.container_detalle_rubro {
+    margin-bottom: 50px;
+}
+
+.container-buttons {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.container-buttons>*:only-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.container-buttons>*:nth-last-child(1):nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.rubro_titulo h3 {
+    color: var(--pink);
+    padding-top: 20px;
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.rubro_container_detalle {
+    margin: 20px 0;
+}
+
+.detalle_rubro_nombre h5 {
+    color: var(--wine);
+    font-weight: bold;
+    text-align: center;
+}
+
+.detalle_rubro_enlaces {
+    display: flex;
+    justify-content: center;
+}
+
+.detalle_rubro_enlaces a {
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 900;
+}
+
+.detalle_rubro_enlaces a:hover {
+    transform: scale(1.1);
+    transition: .5s;
+}
+
+.icono {
+    mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+}
+
+.detalle_rubro_enlaces a:nth-child(1) {
+    margin-right: 30px;
+    border: 1px solid var(--green);
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+    background-color: var(--green);
+}
+
+.detalle_rubro_enlaces a:nth-child(1):hover {
+    background-color: #fff;
+    color: var(--green);
+}
+
+.detalle_rubro_enlaces a:nth-child(1):hover .icono {
+    background-color: var(--green);
+}
+
+.detalle_rubro_enlaces a:nth-child(2) {
+    border: 1px solid var(--wine);
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+    background-color: var(--wine);
+}
+
+.detalle_rubro_enlaces a:nth-child(2):hover {
+    background-color: #fff;
+    color: var(--wine);
+}
+
+.detalle_rubro_enlaces a:nth-child(2):hover .icono {
+    background-color: var(--wine);
+}
+
+@media (max-width:576px) {
+    .container_detalle_rubro {
+        min-height: 600px;
+        padding-left: 20px;
+    }
+
+    .detalle_rubro_nombre h5 {
+        font-size: 25px;
+    }
+
+    .detalle_rubro_enlaces {
+        margin-top: 20px;
+    }
+
+    .detalle_rubro_enlaces a:nth-child(1) {
+        font-size: 20px;
+    }
+
+    .detalle_rubro_enlaces a:nth-child(2) {
+        font-size: 20px;
+    }
+}
+
+@media (min-width:577px) and (max-width:820px) {
+    .container_detalle_rubro {
+        min-height: 700px;
+    }
+}
