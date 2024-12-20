@@ -89,11 +89,6 @@ const Header = () => {
                   hideMenu();
                 }}
               >
-                <li className="nav-item">
-                  <Link to={"/"} className="nav-link">
-                    Inicio
-                  </Link>
-                </li>
                 {links.map((item, index) => (
                   <li
                     key={index}

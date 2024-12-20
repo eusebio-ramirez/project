@@ -1,0 +1,59 @@
+.container {
+    margin: 20px auto;
+    max-width: 100px;
+  }
+  
+  .title {
+    text-align: center;
+    color: #333;
+    font-size: 1.5rem;
+  }
+  
+  .hr-gob {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+  }
+  
+  .card_container_informe {
+  width: 300;
+  border: 1px solid;
+  margin: 0px;
+  border-radius: 10px;
+  padding: 10;
+  flex-direction: column;
+  }
+  
+  .card_img {
+    height: 100%;
+    width: 290px;
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .card_cintillo {
+    height: 10px;
+    background-color: #007bff;
+  }
+  
+  .card_datos h5 {
+    margin: 10px 0;
+    height: 30px;
+    padding: 5;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .card_datos h6 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  .card_datos {
+    height: 10px;
+    padding: 20px;
+  }
