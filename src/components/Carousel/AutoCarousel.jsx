@@ -32,7 +32,7 @@ const AutoCarousel = () => {
       sx={{
         position: "relative",
         width: "100%",
-        height: 400,
+        height: 500,
         overflow: "hidden",
       }}
     >

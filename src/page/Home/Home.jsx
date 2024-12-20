@@ -7,7 +7,8 @@ const Home = () => {
   const theme = useTheme();
 
   return (
-    <Box
+    <Container
+      maxWidth="xl"
       sx={{
         bgcolor: theme.palette.background.default,
         color: theme.palette.text.primary,
@@ -21,7 +22,7 @@ const Home = () => {
     >
       <AutoCarousel />
       <Container
-        maxWidth="lg"
+        maxWidth="xl"
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -81,7 +82,7 @@ const Home = () => {
 
         <TitlePage title="UBICACIÓN" />
       </Container>
-    </Box>
+    </Container>
   );
 };
 

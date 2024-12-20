@@ -6,7 +6,6 @@ const fetchData = async (url) => {
     throw new Error(`Error ${response.status}: ${response.statusText}`);
   }
   return await response.json();
-
 };
 
 export const getRubros = createAsyncThunk(
@@ -25,14 +24,24 @@ export const getRubros = createAsyncThunk(
 
 const initialState = {
   rubros: [],
+  filteredRubros: [],
   loading: false,
   error: null,
 };
 
-const getAgendaSlice = createSlice({
+const getRubrosSlice = createSlice({
   name: "getRubros",
   initialState,
-  reducers: {},
+  reducers: {
+    searchRubros: (state, action) => {
+      state.filteredRubros = state.rubros.filter((rubro) =>
+        rubro.nombre.toLowerCase().includes(action.payload.toLowerCase())
+      );
+    },
+    resetSearch: (state) => {
+      state.filteredRubros = state.rubros;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getRubros.pending, (state) => {
@@ -42,6 +51,7 @@ const getAgendaSlice = createSlice({
       .addCase(getRubros.fulfilled, (state, action) => {
         state.loading = false;
         state.rubros = Array.isArray(action.payload) ? action.payload : [];
+        state.filteredRubros = state.rubros;
       })
       .addCase(getRubros.rejected, (state, action) => {
         state.loading = false;
@@ -50,4 +60,5 @@ const getAgendaSlice = createSlice({
   },
 });
 
-export default getAgendaSlice.reducer;
+export const { searchRubros, resetSearch } = getRubrosSlice.actions;
+export default getRubrosSlice.reducer;
