@@ -1,5 +1,9 @@
 export const links = [
     {
+        "nombre" : "Inicio",
+        "link" : "/",
+    },
+    {
         "nombre" : "Agenda del Titular",
         "link" : "/Agenda",
     },
