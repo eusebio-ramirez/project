@@ -6,7 +6,7 @@ import Rubros from "./pages/Rubros/Rubros";
 import Servicios from "./pages/Servicios/Servicios";
 import Evaluacion from "./pages/Evaluacion/Evaluacion";
 import Error404 from "./pages/Error404/Error404";
-import Agenda from "./pages/Agenda/Agenda";
+import Agenda from "./components/Agenda/Agenda";
 import InformacionInstitucional from "./pages/InformacionInstitucional/InformacionInstitucional";
 import InformeActividades from "./pages/InformeActividades/InformeActividades";
 import DetalleRubro from "./pages/Rubros/DetalleRubro/DetalleRubro";

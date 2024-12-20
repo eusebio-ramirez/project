@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useCallback } from 'react';
-import { ErrorIcon, SuccessIcon } from '../Icons/Icons';
+import { ErrorIcon, SuccessIcon } from '../pages/Icons/Icons';
+
 
 // Creamos un contexto para las notificaciones (snacks)
 const SnackContext = createContext(undefined);

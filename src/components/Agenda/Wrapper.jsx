@@ -1,6 +1,6 @@
 import React from "react";
-import { useSnack } from "../Context/SnackProvider";
-import { Agenda } from "../Agenda/Agenda";
+import { useSnack } from "../../context/SnackProvider"
+import { Agenda } from "./Agenda";
 
 const monthNames = [
   'January', 'February', 'March', 'April', 'May', 'June', 'July', 

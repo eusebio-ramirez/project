@@ -1,90 +1,5 @@
-// import esLocale from "@fullcalendar/core/locales/es";
-// import dayGridPlugin from "@fullcalendar/daygrid";
-// import FullCalendar from "@fullcalendar/react";
-// import { useEffect, useState } from "react";
-
-// import { agenda } from "../../json/agenda";
-// import "./agenda.css";
-// import {useModal} from "../../hooks/useModal";
-
-// const Agenda = () => {
-//   const { modalStatus, openModal, closeModal, modalRef } = useModal();
-
-//   const [events, setEvents] = useState([]);
-
-//   const [eventData, setEventData] = useState([]);
-
-//   useEffect(() => {
-//     setEvents(agenda);
-//     window.scrollTo(0, 0);
-//   }, []);
-
-//   const handleEventClick = (eventClickInfo) => {
-//     openModal();
-//     const eventTitle = eventClickInfo.event.title;
-//     const eventPlace = eventClickInfo.event.extendedProps.place;
-//     const eventDescription = eventClickInfo.event.extendedProps.description;
-//     setEventData([eventTitle, eventPlace, eventDescription]);
-//   };
-
-//   const calendarOptions = {
-//     plugins: [dayGridPlugin],
-//     initialView: "dayGridMonth",
-//     weekends: true,
-//     events: events,
-//     eventClick: handleEventClick,
-//   };
-
-//   return (
-//     <>
-//       <div id="calendar">
-//         <div className="container">
-//           <div className="row">
-//             <div>
-//               <h3 className="title">Agenda del Titular</h3>
-//               <hr className="hr-gob" />
-//             </div>
-//             {modalStatus ? (
-//               <div id="modal-agenda" ref={modalRef}>
-//                 <div className="close-icon">
-//                   <i
-//                     style={{ background: "red" }}
-//                     className="fa-sharp fa-solid fa-xmark"
-//                     onClick={() => {
-//                       closeModal();
-//                     }}
-//                   />
-//                 </div>
-//                 <p className="agenda-title">{eventData[0]}</p>
-//                 <p className="agenda-location">
-//                   <i className="fa-solid fa-location-dot"></i>
-//                   {eventData[1]}
-//                 </p>
-
-//                 <iframe
-//                   id="url"
-//                   src={eventData[2]}
-//                   className="twitter-embed"
-//                   allow="encrypted-media"
-//                 ></iframe>
-//               </div>
-//             ) : null}
-//             <div  className="container">
-//               <div className="agenda">
-//                 <FullCalendar {...calendarOptions} locale={esLocale} />
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Agenda;
-
-// src/ContinuousCalendar.jsx
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import "./agenda.css"
 
 const daysOfWeek = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
 const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
@@ -245,6 +160,7 @@ const Agenda = ({ onClick }) => {
 
   return (
     <div className="no-scrollbar calendar-container max-h-full overflow-y-scroll rounded-t-2xl bg-white pb-10 text-slate-800 shadow-xl">
+      <h2 className='pt-56'>Agenda</h2>
       <div className="sticky -top-px z-50 w-full rounded-t-2xl bg-white px-5 pt-7 sm:px-8 sm:pt-8">
         <div className="mb-4 flex w-full flex-wrap items-center justify-between gap-6">
           <div className="flex flex-wrap gap-2 sm:gap-3">
