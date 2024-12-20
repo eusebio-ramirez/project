@@ -1,9 +1,43 @@
-import "./detallerubro.css";
 import { rubros } from "../../json/rubros";
 import { useParams } from "react-router";
 import { useEffect } from "react";
+import {
+  Box,
+  Button,
+  Card,
+  Chip,
+  Container,
+  Grid,
+  Typography,
+} from "@mui/material";
+import TitlePage from "../../components/Titles/Title-page";
+import useCustomNavigate from "../../hooks/useCustomNavigate";
+import { useTheme } from "@emotion/react";
+
+/*
+  {
+      "id": 2,
+      "icono": "Estructura.png",
+      "nombre": "2.Estructura",
+      "formatos": [
+          {
+              "nombre": "Estructura Orgánica",
+              "xlsx": "f02_a",
+              "html": "f02_a"
+          },
+          {
+              "nombre": "Organigrama",
+              "xlsx": "f02_b",
+              "html": "f02_b"
+          }
+      ]
+    },
+  */
 
 const DetalleRubro = () => {
+  const theme = useTheme();
+
+  const { goBack } = useCustomNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -12,51 +46,101 @@ const DetalleRubro = () => {
   const rubro = rubros.find((rubro) => rubro.nombre === nombre);
 
   return (
-    <div className="container container_detalle_rubro">
-      <div className="row">
-        <div className="col-12">
-          <div className="rubro_titulo">
-            <h3 className="title">{rubro.nombre}</h3>
-            <hr className="hr-gob" />
-          </div>
-        </div>
-      </div>
-      <div className="row">
-        {rubro.formatos.map((formato, index) => {
-          const urlXLSX =
-            "https://dif.hidalgo.gob.mx/Transparencia/xlsx/a69_" +
-            formato.xlsx +
-            "DIFH.xlsx";
-          const urlHTML =
-            "https://dif.hidalgo.gob.mx/Transparencia/htm/a69_" +
-            formato.html +
-            "DIFH.htm";
-          return (
-            <div key={index} className="col-md-4 col-12">
-              <div className="rubro_container_detalle">
-                <div className="detalle_rubro_nombre">
-                  <h5>{formato.nombre}</h5>
-                </div>
-                <div className="detalle_rubro_enlaces">
-                  <a
-                    href={formato.xlsx_liga ? formato.xlsx_liga : urlXLSX}
-                    target="_blank"
-                  >
-                    XLSX
-                  </a>
-                  <a
-                    href={formato.htm_liga ? formato.htm_liga : urlHTML}
-                    target="_blank"
-                  >
-                    Ver Tabla
-                  </a>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <Container
+      maxWidth="lg"
+      sx={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          width: "100%",
+          flexDirection: "column",
+          alignItems: "start",
+          justifyContent: "center",
+        }}
+      >
+        <Button
+          variant="contained"
+          color="primary"
+          sx={{ margin: "1rem" }}
+          onClick={goBack}
+        >
+          Volver
+        </Button>
+      </Box>
+      <TitlePage title={rubro.nombre} />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 2,
+          width: "100%",
+        }}
+      >
+        <Grid container spacing={2}>
+          {rubro.formatos.map((formato) => (
+            <Grid item xs={12} md={4} key={formato.nombre}>
+              <Card
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  bgcolor: theme.palette.background.paper,
+                  color: theme.palette.text.primary,
+                  borderRadius: 2,
+                  padding: 1,
+                  height: 100,
+                  "&:hover": {
+                    boxShadow: theme.shadows[5],
+                  },
+                  alignContent: "center",
+                  justifyContent: "center",
+                  width: "100%",
+                }}
+              >
+                <Typography
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  {formato.nombre}
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Chip
+                    label="Ver"
+                    color="primary"
+                    variant="outlined"
+                    sx={{ margin: 1 }}
+                    onClick={() => {
+                      window.open(
+                        `https://docs.google.com/spreadsheets/d/${formato.xlsx}/edit`,
+                        "_blank"
+                      );
+                    }}
+                  />
+                </Box>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </Container>
   );
 };
 
