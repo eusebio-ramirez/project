@@ -13,6 +13,7 @@ import Snow from "./components/Snow/Snow";
 import { useCallback, useState } from "react";
 import Mensaje from "./components/Mensaje/Mensaje";
 import InformeActividades from "./pages/InformeActividades/InformeActividades";
+import InformacionInstitucional from "./pages/InformacionInstitucional/informacionInstitucional";
 import Agenda from "./pages/Agenda/Agenda";
 import Error404 from "./pages/Error404/Error404";
 import Servicios from "./pages/Servicios/Servicios";
@@ -49,7 +50,7 @@ function App() {
           <Route path={detalleRubroPath} element={<DetalleRubro />} />
           <Route path={serviciosPath} element={<Servicios />} />
           <Route path={evaluacionMonPath} element={<DetalleEvaluacionMonitoreo2024 />} />
-          <Route path={infoInstPath} element={'Información Institucional'} />
+          <Route path={infoInstPath} element={<InformacionInstitucional />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
         <AccessButton />
