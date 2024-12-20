@@ -1,60 +1,52 @@
-import { Route, Routes } from "react-router-dom";
-import TopNavBar from "./components/TopNavBar/Top-menu-nav";
-import ThemeToggleButton from "./components/ThemeToggleButton";
-import Agenda from "./page/Agenda/Agenda";
-import InformeActividades from "./page/InformeActividades/InformeActividades";
-import Home from "./page/Home/Home";
-import Rubros from "./page/Rubros/Rubros";
-import DetalleRubro from "./page/Rubros/DetalleRubro";
-import Servicios from "./page/Servicios/Servicios";
-import Evaluacion from "./page/Evaluacion/Evaluacion";
-// import InformacionInstitucional from "./page/InformacionInsitucional/InformacionInsitucional";
-import Footer from "./components/footer/Footer";
-import NotFound from "./page/NotFound";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { store } from './app/store';
 
-export default function App() {
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
+import Home from "./components/home/Home";
+import InformeActividades from './components/informeActividades/InformeActividades';
+import Agenda from './components/agenda/Agenda';
+import Error404 from "./components/notFound/Error404";
+import Servicios from "./components/servicios/Servicios";
+import DetalleRubro from "./components/DetalleRubro/DetalleRubro";
+import Rubros from "./components/Rubros/Rubros";
+import Evaluacion from "./components/evaluacion/Evaluacion";
+import DetalleDif from "./components/DetalleDif/DetalleDif";
+import InformesDif from "./components/InformesDif/InformesDif";
+import InformesSHCP from "./components/InformesSHCP/InformesSHCP";
+import InformacionInstitucional from "./components/InformacionInstitucional/InformacionInstitucional";
+import { ThemeProvider } from "./context/themeContext";
+import ThemeToggleButton from "./widgets/themeToogleButton/themeToogleButton";
+
+function App() {
   return (
-    <>
-      <TopNavBar />
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Agenda" element={<Agenda />} />
-          <Route path="/InformeActividades" element={<InformeActividades />} />
-          <Route path="/Rubros" element={<Rubros />} />
-          <Route path="/Rubros/:nombre" element={<DetalleRubro />} />
-          <Route path="/Servicios" element={<Servicios />} />
-          <Route path="/Evaluacion" element={<Evaluacion />} />
-          {/* 
-          <Route
-            path="/InformacionInstitucional"
-            element={<InformacionInstitucional />}
-          /> */}
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
-        <ThemeToggleButton />
-        <Footer />
-      </div>
-    </>
+    <ThemeProvider>
+      <ThemeToggleButton/>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Agenda" element={<Agenda />} />
+            <Route path="/InformeActividades" element={<InformeActividades />} />
+            <Route path="/Servicios" element={<Servicios />} />
+            <Route path="/Rubros" element={<Rubros />} />
+            <Route path="/Rubros/DetalleRubro/:nombre" element={<DetalleRubro />} />
+            <Route path="/Evaluacion" element={<Evaluacion />} />
+            <Route path="/InformacionInstitucional" element={<InformacionInstitucional />} />
+            <Route path="/InformacionInstitucional/DetalleDif" element={<DetalleDif />} />
+            <Route path="/InformacionInstitucional/InformesDif" element={<InformesDif />} />
+            <Route path="/InformacionInstitucional/InformesSHCP" element={<InformesSHCP />} />
+            <Route path="*" element={<Error404 />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </Provider>
+    </ThemeProvider>
   );
 }
 
-/*
-  1.- Estructura de directorios ------
+export default App;
 
-  2.- Utilizar estados locales y explicar el porque los utilizan ------ Sahit
-
-  3.- Patrones de comunicación de componentes. ------ Daniel 
-
-  4.- Estado Global Context = Cambio de color de la aplicación 
-
-  5.- Enrutamiento: Dinamico y con hooks useLocation, useParams, useNavigate -------
-
-  6.- Not Found.   >>> useNavigate ------
-
-  7.- Optimización con useMemo y useCallback  ------- Omar
-
-  8.- Custom Hook
-
-  9.- Redux (Agenda, Informe Actividades,Transparencia, Servicios) --------
-*/
