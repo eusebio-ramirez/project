@@ -14,7 +14,8 @@ const Team = ({ data }) => {
                  <MyImage src={item.foto} alt={`${item.nombre}'s photo`} />
                 <Card.Title>
                   {item.nombre}
-                </Card.Title>                
+                </Card.Title>  
+                <Card.Subtitle>{item.cargo}</Card.Subtitle>              
               </Card.Body>              
             </Card>
           </Col>
