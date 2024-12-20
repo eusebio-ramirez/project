@@ -1,16 +1,24 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import * as React from "react";
+import { createRoot } from "react-dom/client";
+import CssBaseline from "@mui/material/CssBaseline";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import { ThemeProvider } from "./context/ThemeContext";
+import { Provider } from "react-redux";
+import store from "./context/redux/store";
 
-import Navbar from './components/navbar/Navbar.jsx'
-import Footer from './components/footer/Footer.jsx'
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
 
-import { ProductsProvider } from './context/ProductsProvider.jsx';
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <ProductsProvider>
-      <App />
-    </ProductsProvider>
-  </StrictMode>,
-)
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <ThemeProvider>
+        <BrowserRouter>
+          <CssBaseline />
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
+  </React.StrictMode>
+);
