@@ -28,7 +28,7 @@ const NotFound = () => {
           <p className="not-found-text">
             Lo sentimos, la página que buscas no existe. Serás redirigido al inicio en {countdown} segundos.
           </p>
-          <Button className="not-found-button" onClick={() => navigate('/')}>
+          <Button variant="outline-danger" className="not-found-button" onClick={() => navigate('/')}>
             Volver al inicio ahora
           </Button>
         </Col>
